@@ -1,0 +1,31 @@
+
+import time
+
+from playwright.sync_api import Playwright, expect
+
+
+class AiCall:
+    def __init__(self, playwright: Playwright):
+        self.browser = playwright.chromium.launch(headless=False)
+        self.page = self.browser.new_page()
+        self.page.goto("https://dev.clinrol.com/")
+
+    def navigate(self,data):
+        self.page.get_by_role("button", name="Log in").click()
+        self.page.locator("#email").fill(data['email'])
+        self.page.locator("#password").fill(data['password'])
+        self.page.get_by_role("button", name="Continue").click()
+        overview = self.page.get_by_role("link", name="Overview")
+        overview.wait_for(state="visible")
+        self.page.get_by_role("link", name="Patients").click()
+        time.sleep(2)
+
+    def ai_call_patient(self):
+        trials = self.page.locator(
+            "(//div[@class='flex flex-col md:flex-row md:items-center justify-between'])").filter(
+            has_text="+9779843125788")
+        trials.get_by_role("button", name="AI Call").first.click()
+        self.page.get_by_role("button", name = "Call now").click()
+        time.sleep(3)
+        expect(self.page.get_by_text("Preparing AI call")).to_be_visible()
+
