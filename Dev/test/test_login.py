@@ -18,6 +18,14 @@ def test_invalid_data(playwright:Playwright):
     "user_password": "Prd@123"
   })
 
+def test_different_password(playwright:Playwright):
+    obj = Login(playwright)
+    obj.navigate()
+    obj.login( {
+    "user_email": "qa.site1.1@gmail.com",
+    "user_password": "Prd@123"
+  })
+
 def test_empty_data(playwright:Playwright):
     obj = Login(playwright)
     obj.navigate()
