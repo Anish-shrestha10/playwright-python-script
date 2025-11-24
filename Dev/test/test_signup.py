@@ -9,7 +9,7 @@ def test_valid_data(playwright:Playwright):
     obj.signup({
     "first_name": "Patient",
     "last_name": "Shrestha",
-    "email": "qa.site1.1+6@gmail.com",
+    "email": "qa.patients1.1+8@gmail.com",
     "selectOption": "Site",
     "Organization": "probits",
     "password": "Password@123",

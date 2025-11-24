@@ -7,12 +7,12 @@ def test_claim_trial(playwright:Playwright):
     obj = ClaimTrial(playwright)
     obj.navigate(
         {
-            "email":"nami@gmail.com",
+            "email":"qa.site1.1@gmail.com",
             "password":"Password@123"
         })
     obj.search_trial(
         {
-            "condition":"heart"
+            "condition":"COPD"
         })
     obj.claim_trial_form(
         {"firstname":"anish",

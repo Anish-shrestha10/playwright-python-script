@@ -8,9 +8,9 @@ def test_valid_data(playwright:Playwright):
     obj.navigate()
     obj.signup({
     "first_name": "robin",
-    "last_name": "sponsor",
-    "email": "robin+10@gmail.com",
-    "selectOption": "Sponsor",
+    "last_name": "patient",
+    "email": "test+1@gmail.com",
+    "selectOption": "Patient",
     "Organization": "probits",
     "password": "Password@123",
     "confirmPassword":  "Password@123"

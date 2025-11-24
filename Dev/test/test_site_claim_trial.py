@@ -18,7 +18,7 @@ def test_claim_trial(playwright:Playwright):
         {"firstname":"law",
          "lastname":"stha",
          "email":"anish@gmail.com",
-         "company":"probits",
+         "company":"probit",
         "phone":"9843125788"}
     )
 
@@ -55,7 +55,7 @@ def test_claim_trial_with_sponsor(playwright:Playwright):
     obj.claim_trial_form(
         {"firstname":"law",
          "lastname":"stha",
-         "email":"anish@gmail.com",
+         "email":"qa.site1.1@gmail.com",
          "company":"probits",
         "phone":"9843125788"}
     )

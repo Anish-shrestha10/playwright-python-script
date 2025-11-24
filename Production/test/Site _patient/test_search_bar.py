@@ -12,5 +12,5 @@ def test_search_bar(playwright:Playwright):
         })
     obj.search(
         {
-            "patient_name":"zoro"
+            "patient_name":"anish"
         })

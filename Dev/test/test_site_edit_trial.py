@@ -19,3 +19,20 @@ def test_site_trial(playwright:Playwright):
         "exclusion_question" : "exclusion",
         "trial":"SGLT2"
         })
+
+def test_empty_data(playwright:Playwright):
+    obj = editTrial(playwright)
+    obj.navigate(
+        {
+            "email": "qa.site1.1@gmail.com",
+            "password": "Password@123"
+        })
+    obj.edit_trial(
+        {
+        "start_date": "",
+        "end_date" : "",
+        "target" : "",
+        "inclusive_question" : "inclusion",
+        "exclusion_question" : "exclusion",
+        "trial": "SGLT2"
+        })

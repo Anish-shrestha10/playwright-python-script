@@ -61,7 +61,7 @@ class SiteOverview:
         self.page.get_by_text("Edit trial").click()
         time.sleep(2)
 
-        print(self.page.locator("h1.font-semibold").text_content())
-
-        expect(self.page.locator("h1.font-semibold")).to_contain_text("Edit Trial")
+        # print(self.page.locator("h1.font-semibold").text_content())
+        assert self.page.locator("h1.font-semibold").first.text_content() == "Edit Trial"
+        # expect(self.page.locator("h1.font-semibold")).first.to_contain_text("Edit Trial")
         time.sleep(2)

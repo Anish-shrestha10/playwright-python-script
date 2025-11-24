@@ -8,7 +8,7 @@ def test_claim_trial(playwright:Playwright):
     obj = ClaimTrial(playwright)
     obj.navigate(
         {
-            "email": "robin@gmail.com",
+            "email": "qa.sponsor1.1@gmail.com",
             "password": "Password@123"
         })
     obj.search_trial(
@@ -35,11 +35,11 @@ def test_claim_trial_empty(playwright:Playwright):
             "condition": "cancer",
         })
     obj.claim_trial_form(
-        {"firstname": "",
-         "lastname": "",
+        {"firstname": "robin",
+         "lastname": "robin",
          "email": "robin@gmail.com",
-         "company": "probits",
-         "phone": "0457896321"}
+         "company": "Probits",
+         "phone": "04576321"}
     )
 
 def test_claim_trial_invalid(playwright:Playwright):
@@ -56,7 +56,7 @@ def test_claim_trial_invalid(playwright:Playwright):
     obj.claim_trial_form(
         {"firstname": "/*-",
          "lastname": "/-",
-         "email": "robin@gm/",
+         "email": "robin@gmmail.com",
          "company": "probits",
          "phone": "0457896321"}
     )

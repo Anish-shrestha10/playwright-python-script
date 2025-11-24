@@ -20,41 +20,39 @@ class ConnectToTrial:
 
     def search_trial(self):
         self.page.get_by_role("link", name="Find a trial").first.click()
-        self.page.get_by_placeholder("Enter condition").fill("Post-operative Radiotherapy Omission in Selected Patients With Early Breast Cancer Trial")
+        self.page.get_by_placeholder("Enter condition").fill("Open Label Study of Acthar SQ Gel Injection in Patients With Active Anterior Uveitis")
         self.page.get_by_role("button", name="Search").click()
         time.sleep(5)
-        self.page.locator("p.text-base").filter(has_text="Post-operative Radiotherapy Omission in Selected Patients With Early Breast Cancer Trial ...").click()
+        self.page.locator("p.text-base").filter(has_text="Open Label Study of Acthar SQ Gel Injection in Patients With Active Anterior Uveitis").click()
         self.page.get_by_role("button", name="Connect to trial").first.click()
         time.sleep(2)
 
     def QA_section(self):
         self.page.get_by_role("button", name="Get started").nth(1).click()
 
+        for i in range(23):
+            self.page.locator("(//*[name()='svg'])[3]").click()
+
         self.page.locator("(//label)[1]").click()
         self.page.locator("(//label)[4]").click()
-        self.page.locator("(//label)[6]").click()
+        self.page.locator("(//label)[7]").click()
         self.page.locator("(//label)[9]").click()
-        self.page.locator("(//label)[10]").click()
         self.page.locator("(//label)[12]").click()
         self.page.locator("(//label)[14]").click()
         self.page.locator("(//label)[16]").click()
-        self.page.locator("(//label)[18]").click()
+        self.page.locator("(//label)[17]").click()
+        self.page.locator("(//label)[19]").click()
         self.page.locator("(//label)[21]").click()
-        self.page.locator("(//label)[23]").click()
-        self.page.locator("(//label)[27]").click()
-
-        for i in range(55):
-            self.page.locator("(//*[name()='svg'])[3]").click()
-
-        self.page.locator("(//label)[29]").click()
-        self.page.locator("(//label)[34]").click()
-        self.page.locator("(//label)[36]").click()
+        self.page.locator("(//label)[24]").click()
+        self.page.locator("(//label)[26]").click()
+        self.page.locator("(//label)[28]").click()
+        self.page.locator("(//label)[30]").click()
         self.page.get_by_role("button", name="Next").click()
         time.sleep(3)
 
-    def patient_details(self,data):
+    def patient_details(self, data):
         self.page.get_by_placeholder("Enter your first name").fill(data['first_name'])
-        self.page.get_by_placeholder("Enter your last name").fill(data['last_name'])
+        self.page.get_by_placeholder("Enter your last name").fill(data['Last_name'])
         self.page.get_by_placeholder("Enter your email").fill(data['email'])
         self.page.get_by_role("button", name="Done").click()
         self.page.locator("//button[@aria-label='Select Country Code']//*[name()='svg']").click()
@@ -68,9 +66,9 @@ class ConnectToTrial:
         self.page.get_by_placeholder("Day").fill(data['day'])
         self.page.get_by_placeholder("Year").fill(data['year'])
         self.page.locator("span.font-medium").nth(0).click()
-        self.page.locator("(//li[normalize-space()='Female'])").click()
+        self.page.locator("(//li[normalize-space()='Male'])").click()
         self.page.locator("span.font-medium").nth(0).click()
-        self.page.get_by_text("The Chris O'Brien Lifehouse").click()
+        self.page.get_by_text("Washington University in St. Louis").click()
         self.page.locator("(//input[@type='checkbox'])").click()
         self.page.get_by_role("button", name="Submit").click()
         time.sleep(1)

@@ -23,5 +23,6 @@ class Login:
 
     def forgetPassword(self):
         self.page.get_by_role("link", name="Forgot password?").click()
+        time.sleep(1)
         expect(self.page.locator("h2.mb-4")).to_contain_text("Forgot Password?")
 
