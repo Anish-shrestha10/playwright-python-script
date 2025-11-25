@@ -6,7 +6,7 @@ def test_valid_data(playwright:Playwright):
     obj = Login(playwright)
     obj.navigate()
     obj.login( {
-    "user_email": "qa.sponsorg1.1@gmail.com",
+    "user_email": "qa.sponsor1.1@gmail.com",
     "user_password": "Password@123"
   })
 

@@ -58,7 +58,7 @@ class SiteOverview:
         self.page.get_by_role("link", name="Overview").click()
         self.page.locator("svg.lucide.lucide-ellipsis-vertical").first.click()
         time.sleep(1)
-        self.page.get_by_text("Edit trial").click()
+        self.page.get_by_text("Edit trial").first.click()
         time.sleep(2)
 
         # print(self.page.locator("h1.font-semibold").text_content())

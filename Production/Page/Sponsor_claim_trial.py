@@ -33,7 +33,7 @@ class ClaimTrial:
         self.page.get_by_placeholder("Enter your email").fill(data['email'])
         self.page.get_by_placeholder("Enter your company").fill(data['company'])
         self.page.locator("//button[@aria-label='Select Country Code']//*[name()='svg']").click()
-        self.page.locator("//button[normalize-space()='Australia (+61)']").click()
+        self.page.locator(f"//button[normalize-space()='{data['country_code']}']").click()
         self.page.get_by_placeholder("Enter your phone number").fill(data['phone'])
         self.page.get_by_role("button", name="Select an option").click()
         # time.sleep(2)

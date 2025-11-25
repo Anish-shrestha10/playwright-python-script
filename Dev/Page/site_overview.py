@@ -7,11 +7,11 @@ class SiteOverview:
     def __init__(self, plawright:Playwright):
         self.browser = plawright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
-        self.page.goto("https://dev.clinrol.com/")
+        self.page.goto("https://www.clinrol.com/")
 
     def navigate(self):
         self.page.get_by_role("button", name="Log in").click()
-        self.page.locator("#email").fill("anish@gmail.com")
+        self.page.locator("#email").fill("qa.site1.1@gmail.com")
         self.page.locator("#password").fill("Password@123")
         self.page.get_by_role("button", name="Continue").click()
         time.sleep(2)
@@ -32,10 +32,8 @@ class SiteOverview:
         self.page.get_by_role("link", name="Overview").click()
 
     def patient_details(self):
-        patients_displayed = self.page.locator("//tbody/tr").count()
-        for index in range(patients_displayed):
+        for index in range(self.page.locator(" tbody tr").count()):
             # looping through tr
-            print(patients_displayed)
             body = self.page.locator("tbody")
             row = body.locator("tr").nth(index)
 
@@ -60,8 +58,10 @@ class SiteOverview:
         self.page.get_by_role("link", name="Overview").click()
         self.page.locator("svg.lucide.lucide-ellipsis-vertical").first.click()
         time.sleep(1)
-        self.page.get_by_text("Edit trial").click()
+        self.page.get_by_text("Edit trial").first.click()
+        time.sleep(2)
 
-        time.sleep(3)
-        expect(self.page.locator("//h1[@class='text-lg font-semibold whitespace-nowrap']")).to_contain_text("Edit Trial")
+        # print(self.page.locator("h1.font-semibold").text_content())
+        assert self.page.locator("h1.font-semibold").first.text_content() == "Edit Trial"
+        # expect(self.page.locator("h1.font-semibold")).first.to_contain_text("Edit Trial")
         time.sleep(2)

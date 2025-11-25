@@ -20,7 +20,8 @@ def test_claim_trial(playwright:Playwright):
          "lastname": "smith",
          "email": "robin@gmail.com",
          "company": "probits",
-         "phone": "0457896321"}
+         "phone": "0457896321",
+         "country_code":"Australia (+61)"}
     )
 
 def test_claim_trial_empty(playwright:Playwright):
@@ -35,14 +36,15 @@ def test_claim_trial_empty(playwright:Playwright):
             "condition": "cancer",
         })
     obj.claim_trial_form(
-        {"firstname": "robin",
-         "lastname": "robin",
+        {"firstname": "",
+         "lastname": "",
          "email": "robin@gmail.com",
          "company": "Probits",
-         "phone": "04576321"}
+         "phone": "04576321",
+         "country_code":"Australia (+61)"}
     )
 
-def test_claim_trial_invalid(playwright:Playwright):
+def test_claim_trial_invalid_email(playwright:Playwright):
     obj = ClaimTrial(playwright)
     obj.navigate(
         {
@@ -54,18 +56,19 @@ def test_claim_trial_invalid(playwright:Playwright):
             "condition": "cancer",
         })
     obj.claim_trial_form(
-        {"firstname": "/*-",
-         "lastname": "/-",
-         "email": "robin@gmmail.com",
+        {"firstname": "robin",
+         "lastname": "robin",
+         "email": "robin@gmm",
          "company": "probits",
-         "phone": "0457896321"}
+         "phone": "0457896321",
+         "country_code":"Australia (+61)"}
     )
 
 def test_claim_trial_with_site(playwright:Playwright):
     obj = ClaimTrial(playwright)
     obj.navigate(
         {
-            "email":"anish@gmail.com",
+            "email":"qa.site1.1@gmail.com",
             "password":"Password@123"
         })
     obj.search_trial(
@@ -77,5 +80,6 @@ def test_claim_trial_with_site(playwright:Playwright):
          "lastname":"smith",
          "email":"qa.sponsor1.1@gmail.com",
          "company":"probits",
-        "phone":"0457896321"}
+        "phone":"0457896321",
+         "country_code":"Australia (+61)"}
     )

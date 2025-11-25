@@ -20,12 +20,13 @@ class Navbar:
         # find a trial
         self.page.get_by_role("link", name="Find a trial").first.click()
         time.sleep(3)
-        expect(self.page.locator("h1.font-semibold")).to_contain_text("clinical trial")
+        expect(self.page.locator("h1.font-semibold")).to_contain_text("Find a clinical trial near you")
 
         # researchers
         self.page.get_by_role("link", name="Researchers").click()
         time.sleep(2)
-        expect(self.page.locator("h1.text-3xl")).to_contain_text("Simplify how you recruit and connect with patients")
+        expect(self.page.locator(
+            "//h1[normalize-space()='Simplify how you recruit and connect with patients']")).to_be_visible()
 
         # sponsores
         self.page.get_by_role("link", name="Sponsors").click()

@@ -19,7 +19,9 @@ def test_claim_trial(playwright:Playwright):
          "lastname":"shrestha",
          "email":"nami@gmail.com",
          "company":"probits",
-        "phone":"9843125788"}
+        "phone":"9843125788",
+         "country_code":"Nepal (+977)"
+         }
     )
 
 def test_claim_trial_empty(playwright:Playwright):
@@ -38,7 +40,30 @@ def test_claim_trial_empty(playwright:Playwright):
          "lastname":"",
          "email":"nami@gmail.com",
          "company":"probits",
-        "phone":"9843125788"}
+        "phone":"9843125788",
+         "country_code":"Nepal (+977)"
+         }
+    )
+
+def test_claim_trial_invalid_email(playwright:Playwright):
+    obj = ClaimTrial(playwright)
+    obj.navigate(
+        {
+            "email":"nami@gmail.com",
+            "password":"Password@123"
+        })
+    obj.search_trial(
+        {
+            "condition":"cancer"
+        })
+    obj.claim_trial_form(
+        {"firstname":"nami",
+         "lastname":"anime",
+         "email":"nami@gma",
+         "company":"probits",
+        "phone":"9843125788",
+         "country_code":"Nepal (+977)"
+         }
     )
 
 def test_claim_trial_with_sponsor(playwright:Playwright):
@@ -55,7 +80,8 @@ def test_claim_trial_with_sponsor(playwright:Playwright):
     obj.claim_trial_form(
         {"firstname":"law",
          "lastname":"stha",
-         "email":"anish@gmail.com",
+         "email":"qa.site1.1@gmail.com",
          "company":"probits",
-        "phone":"9843125788"}
+        "phone":"9843125788",
+         "country_code":"Nepal (+977)"}
     )
