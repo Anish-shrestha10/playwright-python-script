@@ -9,7 +9,7 @@ def test_valid_data(playwright:Playwright):
     obj.signup({
     "first_name": "robin",
     "last_name": "patient",
-    "email": "qa.patients1.1+13@gmail.com",
+    "email": "qa.patients1.1+14@gmail.com",
     "selectOption": "Site",
     "Organization": "probits",
     "password": "Password@123",
@@ -55,6 +55,7 @@ def test_invalid_email(playwright: Playwright):
         "password": "Password@123",
         "confirmPassword": "Password@123"
     })
+
 def test_mismatched_password(playwright: Playwright):
     obj = Signup(playwright)
     obj.navigate()

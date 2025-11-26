@@ -40,6 +40,8 @@ class editTrial:
 
         self.page.get_by_role("button", name="Add criteria").nth(1).click()
         self.page.get_by_placeholder("Enter exclusion criteria criterion...").last.fill(data['exclusion_question'])
+        self.page.get_by_role("button", name="Save").click()
+        time.sleep(3)
 
         # filter inclusion text that you want to delete and click on trash button
         del_inclusion = self.page.locator("div.flex.items-start").filter(
@@ -50,7 +52,7 @@ class editTrial:
         del_exclusion = self.page.locator("div.flex.items-start").filter(
             has=self.page.locator(f"input[value={data['exclusion_question']}]"))
         del_exclusion.locator("svg.lucide-trash-2").click()
-        time.sleep(5)
+        time.sleep(1)
         self.page.get_by_role("button", name="Save").click()
 
         expect(self.page.locator(".Toastify__toast")).to_contain_text("Trial updated successfully")

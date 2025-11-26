@@ -24,6 +24,20 @@ def test_claim_trial(playwright:Playwright):
          "country_code":"Australia (+61)"}
     )
 
+def test_claim_trial_without_login(playwright:Playwright):
+    obj = ClaimTrial(playwright)
+    obj.search_trial(
+        {
+            "condition": "cancer",
+        })
+    obj.claim_trial_form(
+        {"firstname":"zoro",
+         "lastname":"smith",
+         "email":"qa.sponsor1.1@gmail.com",
+         "company":"probits",
+        "phone":"0457896321"}
+    )
+
 def test_claim_trial_empty(playwright:Playwright):
     obj = ClaimTrial(playwright)
     obj.navigate(

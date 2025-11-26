@@ -21,6 +21,19 @@ def test_claim_trial(playwright:Playwright):
          "company":"probit",
         "phone":"9843125788"}
     )
+def test_claim_trial_without_login(playwright:Playwright):
+    obj = ClaimTrial(playwright)
+    obj.search_trial(
+        {
+            "condition":"depression"
+        })
+    obj.claim_trial_form(
+        {"firstname":"law",
+         "lastname":"stha",
+         "email":"anish@gmail.com",
+         "company":"probit",
+        "phone":"9843125788"}
+    )
 
 def test_claim_trial_empty_fields(playwright:Playwright):
     obj = ClaimTrial(playwright)
@@ -39,6 +52,24 @@ def test_claim_trial_empty_fields(playwright:Playwright):
          "email":"anish@gmail.com",
          "company":"probits",
         "phone":"9843125788"}
+    )
+def test_claim_trial_invalid_data(playwright:Playwright):
+    obj = ClaimTrial(playwright)
+    obj.navigate(
+        {
+            "email":"anish@gmail.com",
+            "password":"Password@123"
+        })
+    obj.search_trial(
+        {
+            "condition": "cancer"
+        })
+    obj.claim_trial_form(
+        {"firstname":"law",
+         "lastname":"stha",
+         "email":"anish@gmail.com",
+         "company":"probit",
+        "phone":"935788"}
     )
 
 def test_claim_trial_with_sponsor(playwright:Playwright):

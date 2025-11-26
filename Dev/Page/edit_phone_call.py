@@ -43,6 +43,8 @@ class editPhoneCall:
         self.page.locator("#edit-phone-question-text").fill("Gender????")
         time.sleep(2)
         self.page.get_by_role("button", name="Save changes").click()
+        self.page.get_by_role("button", name="Save").click()
+        time.sleep(2)
 
         new_question.locator("svg.lucide-trash2").click()
         time.sleep(2)

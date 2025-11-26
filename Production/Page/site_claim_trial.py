@@ -19,6 +19,7 @@ class ClaimTrial:
         self.page.get_by_role("link", name="Find a trial").click()
 
     def search_trial(self,data):
+        self.page.get_by_role("link", name="Find a trial").first.click()
         self.page.get_by_placeholder("Enter condition").fill(data['condition'])
         self.page.get_by_role("button", name="Search").click()
         self.page.locator("p.text-base").first.click()

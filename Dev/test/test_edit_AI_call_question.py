@@ -7,7 +7,7 @@ def test_site_trial(playwright:Playwright):
     obj = editAICallQuestion(playwright)
     obj.navigate(
         {
-            "email": "anish@gmail.com",
+            "email": "qa.site1.1@gmail.com",
             "password": "Password@123"
         })
     obj.edit_AI_call_question()

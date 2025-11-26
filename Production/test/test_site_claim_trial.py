@@ -24,6 +24,21 @@ def test_claim_trial(playwright:Playwright):
          }
     )
 
+def test_claim_trial_without_login(playwright:Playwright):
+    obj = ClaimTrial(playwright)
+    obj.search_trial(
+        {
+            "condition":"COPD"
+        })
+    obj.claim_trial_form(
+        {"firstname":"anish",
+         "lastname":"shrestha",
+         "email":"nami@gmail.com",
+         "company":"probits",
+        "phone":"9843125788",
+         "country_code":"Nepal (+977)"}
+    )
+
 def test_claim_trial_empty(playwright:Playwright):
     obj = ClaimTrial(playwright)
     obj.navigate(

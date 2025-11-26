@@ -8,7 +8,7 @@ def test_search_by_condition(playwright:Playwright):
     obj = SearchByCondition(playwright)
     obj.search(
         {
-            "condition": "lupus",
+            "condition": "asthma",
             "age": "60",
             "location": "australia"
         })

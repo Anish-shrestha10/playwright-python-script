@@ -9,13 +9,13 @@ class ConnectToTrial:
         self.page = self.browser.new_page()
         self.page.goto("https://dev.clinrol.com/")
 
-    # def navigate(self):
-    #     self.page.get_by_role("button", name="Log in").click()
-    #     self.page.locator("#email").fill("qa.patients1.1@gmail.com")
-    #     self.page.locator("#password").fill("Password@123")
-    #     self.page.get_by_role("button", name="Continue").click()
-    #     time.sleep(2)
-    #     self.page.locator("(//img[@class='hidden sm:block'])").click()
+    def navigate(self,data):
+        self.page.get_by_role("button", name="Log in").click()
+        self.page.locator("#email").fill(data['email'])
+        self.page.locator("#password").fill(data['password'])
+        self.page.get_by_role("button", name="Continue").click()
+        time.sleep(2)
+        self.page.locator("(//img[@class='hidden sm:block'])").click()
 
 
     def search_trial(self):
@@ -28,7 +28,12 @@ class ConnectToTrial:
         time.sleep(2)
 
     def QA_section(self):
-        self.page.get_by_role("button", name="Get started").nth(1).click()
+        time.sleep(2)
+        count =  self.page.get_by_role("button", name="Get started").count()
+        if count >= 2:
+            self.page.get_by_role("button", name="Get started").nth(1).click()
+        else:
+            self.page.get_by_role("button", name="Get started").click()
 
         for i in range(23):
             self.page.locator("(//*[name()='svg'])[3]").click()

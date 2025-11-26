@@ -3,11 +3,11 @@ from playwright.sync_api import Playwright
 from Dev.Page.site_edit_trial import editTrial
 
 
-def test_site_trial(playwright:Playwright):
+def test_site_edit_trial(playwright:Playwright):
     obj = editTrial(playwright)
     obj.navigate(
         {
-            "email":"anish@gmail.com",
+            "email":"qa.site1.1@gmail.com",
             "password":"Password@123"
         })
     obj.edit_trial(

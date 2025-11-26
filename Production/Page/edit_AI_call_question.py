@@ -30,8 +30,8 @@ class editAICallQuestion:
         self.page.get_by_text("AI call questions").click()
         time.sleep(2)
 
-        question = "What is your name?"
-        question1 = "What is your name??????"
+        question = "how are you?"
+        question1 = "how are you??????"
         self.page.get_by_role("button", name="Add AI question").click()
         self.page.locator("#ai-question-text").fill(question)
         self.page.locator("#ai-question-criteria").fill(question)
@@ -46,7 +46,9 @@ class editAICallQuestion:
         self.page.locator("#edit-ai-question-criteria").fill(question1)
         time.sleep(1)
         self.page.get_by_role("button", name="Save changes").click()
-
+        # time.sleep(2)
+        self.page.get_by_role("button", name="Save").click()
+        time.sleep(2)
         new_question.locator("svg.lucide-trash2").click()
         time.sleep(5)
         self.page.get_by_role("button", name="Save").click()
