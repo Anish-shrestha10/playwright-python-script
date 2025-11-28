@@ -17,7 +17,7 @@ def test_site_edit_trial(playwright:Playwright):
         "target" : "500",
         "inclusive_question" : "inclusion",
         "exclusion_question" : "exclusion",
-        "trial":"SGLT2"
+        "trial":"Computed Tomography Coronary Angiography for the Prevention of Myocardial Infarction (The SCOT-HEART 2 Trial)"
         })
 
 def test_empty_data(playwright:Playwright):
@@ -34,5 +34,5 @@ def test_empty_data(playwright:Playwright):
         "target" : "",
         "inclusive_question" : "inclusion",
         "exclusion_question" : "exclusion",
-        "trial": "SGLT2"
+        "trial": "Computed Tomography Coronary Angiography for the Prevention of Myocardial Infarction (The SCOT-HEART 2 Trial)"
         })

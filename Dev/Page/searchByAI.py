@@ -9,6 +9,7 @@ class SearchByAI:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://dev.clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def search(self,data):
 
@@ -18,5 +19,5 @@ class SearchByAI:
         trials = self.page.locator("div.flex.h-full")
         if trials == True:
             title = trials.nth(0).locator("h2.font-bold")
-            expect(title).to_have_text(re.compile(data, re.IGNORECASE))
+            expect(title).to_have_text(re.compile(data['search'], re.IGNORECASE))
         time.sleep(5)

@@ -27,8 +27,12 @@ class SearchBar:
         self.page.get_by_role("button", name="Search").click()
         time.sleep(3)
         trials = self.page.locator("div.flex.h-full")
-        title = trials.nth(0).locator("h2.font-bold")
-        expect(title).to_have_text(re.compile(searchdata["condition"], re.IGNORECASE))
-        location = trials.nth(0).locator("div.mb-2.flex.items-center.gap-1").nth(1)
-        # expect(location).to_have_text(re.compile(searchdata["place"], re.IGNORECASE))
+        condition = searchdata['condition']
+        if condition != "":
+            title = trials.nth(0).locator("h2.font-bold")
+            expect(title).to_have_text(re.compile(searchdata['condition'], re.IGNORECASE))
+        location = searchdata['place']
+        if location != "":
+            place = trials.nth(0).locator("div.mb-2.flex.items-center.gap-1").nth(1)
+            expect(place).to_have_text(re.compile(searchdata['place'], re.IGNORECASE))
         time.sleep(2)

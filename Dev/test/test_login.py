@@ -37,4 +37,15 @@ def test_empty_data(playwright:Playwright):
 def test_forget_password(playwright:Playwright):
     obj = Login(playwright)
     obj.navigate()
-    obj.forgetPassword()
+    obj.forgetPassword(
+        {
+            "reset_email":"qa.site1.1@gmail.com"
+        })
+
+def test_forget_password_empty(playwright:Playwright):
+    obj = Login(playwright)
+    obj.navigate()
+    obj.forgetPassword(
+        {
+            "reset_email":""
+        })

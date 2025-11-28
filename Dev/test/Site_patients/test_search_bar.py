@@ -7,7 +7,7 @@ def test_search_bar(playwright:Playwright):
     obj = search_bar(playwright)
     obj.navigate(
         {
-            "email":"anish@gmail.com",
+            "email":"qa.site1.1@gmail.com",
             "password":"Password@123",
         })
     obj.search(

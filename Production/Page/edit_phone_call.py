@@ -21,13 +21,14 @@ class editPhoneCall:
 
         self.page.get_by_role("link", name="Trials").click()
 
-    def edit_phone_call(self):
+    def edit_phone_call(self,data):
         self.page.get_by_role("tab", name=re.compile(r"All trials", re.IGNORECASE)).click()
         time.sleep(3)
 
+        self.page.get_by_placeholder("Search trials...").fill(data['trial'])
         self.page.locator("svg.lucide-ellipsis-vertical").first.click()
         self.page.get_by_text("Edit trial").first.click()
-        question="gender?"
+        question="Am i speaking to patient?"
         self.page.get_by_text("Phone call script").click()
         time.sleep(2)
 
@@ -40,12 +41,12 @@ class editPhoneCall:
         new_question = self.page.locator("div.p-3.gap-3").filter(has_text=question)
         new_question.locator("svg.lucide-pen-line").click()
 
-        self.page.locator("#edit-phone-question-text").fill("Gender????")
+        self.page.locator("#edit-phone-question-text").fill("Am i speaking to patient????")
         time.sleep(2)
         self.page.get_by_role("button", name="Save changes").click()
 
         self.page.get_by_role("button", name="Save").click()
-        time.sleep(2)
+        time.sleep(3)
         new_question.locator("svg.lucide-trash2").click()
         time.sleep(5)
 

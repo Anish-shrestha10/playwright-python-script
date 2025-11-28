@@ -7,7 +7,23 @@ def test_ai_call(playwright:Playwright):
     obj = AiCall(playwright)
     obj.navigate(
         {
-            "email":"anish@gmail.com",
+            "email":"qa.site1.1@gmail.com",
             "password":"Password@123"
         })
     obj.ai_call_patient()
+
+
+def test_schedule_ai_call(playwright:Playwright):
+    obj = AiCall(playwright)
+    obj.navigate(
+        {
+            "email":"anish@gmail.com",
+            "password":"Password@123"
+        })
+    obj.ai_call_schedule(
+        {
+            "date":"2025-11-27",
+            "hr":"11",
+            "min":"00",
+            "am/pm":"AM"
+        })

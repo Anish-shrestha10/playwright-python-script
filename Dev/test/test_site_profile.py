@@ -6,7 +6,7 @@ def test_site_profile(playwright:Playwright):
     obj = Profile(playwright)
     obj.navigate(
         {
-            "email":"anish@gmail.com",
+            "email":"qa.site1.1@gmail.com",
             "password":"Password@123"
         })
     obj.update_personal_information({

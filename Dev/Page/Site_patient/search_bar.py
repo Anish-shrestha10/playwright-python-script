@@ -8,6 +8,7 @@ class search_bar:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://dev.clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def navigate(self,data):
         self.page.get_by_role("button", name="Log in").click()
@@ -30,7 +31,7 @@ class search_bar:
             f"(//h3[@class ='font-medium text-gray-900 cursor-pointer hover:text-green-600 transition-colors'])")
         for i in range(count):
             title = titles.nth(i).text_content()
-
+            print(title)
             assert  data['patient_name'].lower() in title.lower()
 
         time.sleep(2)

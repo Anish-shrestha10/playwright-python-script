@@ -12,11 +12,12 @@ def test_site_trial(playwright:Playwright):
         })
     obj.edit_trial(
         {
-        "start_date": "2025-09-26",
-        "end_date" : "2025-10-13",
+        "start_date": "2025-09-28",
+        "end_date" : "2026-11-16",
         "target" : "500",
         "inclusive_question" : "inclusion",
         "exclusion_question" : "exclusion",
+        "trial":"Open Label Study of Acthar SQ Gel Injection in Patients With Active Anterior Uveitis"
         })
 
 def test_empty_data(playwright:Playwright):
@@ -33,4 +34,5 @@ def test_empty_data(playwright:Playwright):
         "target" : "",
         "inclusive_question" : "inclusion",
         "exclusion_question" : "exclusion",
+        "trial": "Open Label Study of Acthar SQ Gel Injection in Patients With Active Anterior Uveitis"
         })

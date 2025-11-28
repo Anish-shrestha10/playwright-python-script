@@ -17,5 +17,5 @@ class SearchByAI:
         trials = self.page.locator("div.flex.h-full")
         if trials == True:
             title = trials.nth(0).locator("h2.font-bold")
-            expect(title).to_have_text(re.compile(data, re.IGNORECASE))
+            expect(title).to_have_text(re.compile(data['prompt'], re.IGNORECASE))
         time.sleep(5)

@@ -9,6 +9,7 @@ class editPreScreening:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://dev.clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def navigate(self,data):
         self.page.get_by_role("button", name="Log in").click()
@@ -20,12 +21,13 @@ class editPreScreening:
 
         self.page.get_by_role("link", name="Trials").click()
 
-    def edit_pre_screening(self):
+    def edit_pre_screening(self,data):
         self.page.get_by_role("tab", name=re.compile(r"All trials", re.IGNORECASE)).click()
         time.sleep(3)
+
+        self.page.get_by_placeholder("Search trials...").fill(data['trial'])
         self.page.locator("svg.lucide-ellipsis-vertical").first.click()
         self.page.get_by_text("Edit trial").first.click()
-
         question = "What is your favourite food?"
         self.page.get_by_text("Pre-screening questions").click()
         self.page.get_by_role("button", name="Add question").click()

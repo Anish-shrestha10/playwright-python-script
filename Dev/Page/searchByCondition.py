@@ -9,6 +9,7 @@ class SearchByCondition:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://dev.clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def search(self,data):
         self.page.get_by_text("Search by condition").click()
@@ -18,8 +19,12 @@ class SearchByCondition:
         self.page.get_by_role("button", name="Find Trials").click()
         time.sleep(5)
         trials = self.page.locator("div.flex.h-full")
-        title = trials.nth(0).locator("h2.font-bold")
-        expect(title).to_have_text(re.compile(data['condition'], re.IGNORECASE))
-        place = trials.nth(0).locator("div.mb-2.flex.items-center.gap-1").nth(1)
-        expect(place).to_have_text(re.compile(data['location'], re.IGNORECASE))
+        condition = data['condition']
+        if condition !="":
+            title = trials.nth(0).locator("h2.font-bold")
+            expect(title).to_have_text(re.compile(data['condition'], re.IGNORECASE))
+        location = data['location']
+        if location != "":
+            place = trials.nth(0).locator("div.mb-2.flex.items-center.gap-1").nth(1)
+            expect(place).to_have_text(re.compile(data['location'], re.IGNORECASE))
         time.sleep(2)

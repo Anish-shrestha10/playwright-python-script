@@ -9,6 +9,7 @@ class callPatient:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://dev.clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def navigate(self,data):
         self.page.get_by_role("button", name="Log in").click()

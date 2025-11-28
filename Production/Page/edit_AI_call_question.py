@@ -20,10 +20,11 @@ class editAICallQuestion:
 
         self.page.get_by_role("link", name="Trials").click()
 
-    def edit_AI_call_question(self):
+    def edit_AI_call_question(self,data):
         self.page.get_by_role("tab", name=re.compile(r"All trials", re.IGNORECASE)).click()
         time.sleep(3)
 
+        self.page.get_by_placeholder("Search trials...").fill(data['trial'])
         self.page.locator("svg.lucide-ellipsis-vertical").first.click()
         self.page.get_by_text("Edit trial").first.click()
         question="gender?"
@@ -48,9 +49,9 @@ class editAICallQuestion:
         self.page.get_by_role("button", name="Save changes").click()
         # time.sleep(2)
         self.page.get_by_role("button", name="Save").click()
-        time.sleep(2)
+        time.sleep(3)
         new_question.locator("svg.lucide-trash2").click()
-        time.sleep(5)
+        time.sleep(2)
         self.page.get_by_role("button", name="Save").click()
 
         expect(self.page.locator(".Toastify__toast")).to_contain_text("Trial updated successfully")

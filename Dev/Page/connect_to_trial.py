@@ -8,6 +8,7 @@ class ConnectToTrial:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://dev.clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def navigate(self,data):
         self.page.get_by_role("button", name="Log in").click()
@@ -20,10 +21,10 @@ class ConnectToTrial:
 
     def search_trial(self):
         self.page.get_by_role("link", name="Find a trial").first.click()
-        self.page.get_by_placeholder("Enter condition").fill("Post-operative Radiotherapy Omission in Selected Patients With Early Breast Cancer Trial")
+        self.page.get_by_placeholder("Enter condition").fill("SGLT2 Inhibitors As First Line Therapy to Prevent Renal Decline in Type 2 Diabetes")
         self.page.get_by_role("button", name="Search").click()
         time.sleep(5)
-        self.page.locator("p.text-base").filter(has_text="Post-operative Radiotherapy Omission in Selected Patients With Early Breast Cancer Trial ...").click()
+        self.page.locator("p.text-base").filter(has_text="SGLT2 Inhibitors As First Line Therapy to Prevent Renal Decline in Type 2 Diabetes").click()
         self.page.get_by_role("button", name="Connect to trial").first.click()
         time.sleep(2)
 
@@ -35,25 +36,35 @@ class ConnectToTrial:
         else:
             self.page.get_by_role("button", name="Get started").click()
 
-        for i in range(23):
-            self.page.locator("(//*[name()='svg'])[3]").click()
+        # for i in range(23):
+        #     self.page.locator("(//*[name()='svg'])[3]").click()
 
-        self.page.locator("(//label)[1]").click()
+        self.page.get_by_placeholder("Enter a number").first.fill("23")
+
         self.page.locator("(//label)[4]").click()
         self.page.locator("(//label)[6]").click()
+        # weight
+        self.page.get_by_placeholder("Enter a number").nth(1).fill("50")
+
+        # height
+        self.page.get_by_placeholder("Enter a number").nth(2).fill("165")
+
         self.page.locator("(//label)[9]").click()
         self.page.locator("(//label)[12]").click()
         self.page.locator("(//label)[14]").click()
         self.page.locator("(//label)[16]").click()
-        self.page.locator("(//label)[18]").click()
-        self.page.locator("(//label)[21]").click()
-        self.page.locator("(//label)[23]").click()
-        self.page.locator("(//label)[27]").click()
-        self.page.locator("(//label)[29]").click()
-        self.page.get_by_placeholder("Enter a number").nth(1).fill("160")
-        self.page.get_by_placeholder("Enter a number").nth(2).fill("55")
-        self.page.locator("(//label)[34]").click()
-        self.page.locator("(//label)[36]").click()
+        self.page.locator("(//label)[19]").click()
+        self.page.locator("(//label)[20]").click()
+        # smoke count
+        self.page.get_by_placeholder("Enter a number").nth(3).fill("1")
+
+        self.page.locator("(//label)[22]").click()
+
+        # eGFR count
+        self.page.get_by_placeholder("Enter a number").nth(4).fill("20")
+
+        self.page.locator("(//label)[24]").click()
+
         self.page.get_by_role("button", name="Next").click()
         time.sleep(3)
 
@@ -73,11 +84,11 @@ class ConnectToTrial:
         self.page.get_by_placeholder("Day").fill(data['day'])
         self.page.get_by_placeholder("Year").fill(data['year'])
         self.page.locator("span.font-medium").nth(0).click()
-        self.page.locator("(//li[normalize-space()='Female'])").click()
+        self.page.locator("(//li[normalize-space()='Male'])").click()
         self.page.locator("span.font-medium").nth(0).click()
-        self.page.get_by_text("The Chris O'Brien Lifehouse").click()
-        self.page.locator("(//input[@type='checkbox'])").click()
-        self.page.get_by_role("button", name="Submit").click()
+        self.page.get_by_text("The George Institute for Global Health").nth(1).click()
+        self.page.locator("input.form-checkbox").click()
+        self.page.get_by_role("button", name="Submit").last.click()
         time.sleep(1)
         expect(self.page.locator(".Toastify__toast")).to_contain_text("Application submitted successfully!")
         time.sleep(2)

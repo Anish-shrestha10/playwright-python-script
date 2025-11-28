@@ -9,6 +9,7 @@ class AiCall:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://dev.clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def navigate(self,data):
         self.page.get_by_role("button", name="Log in").click()
@@ -29,3 +30,27 @@ class AiCall:
         time.sleep(3)
         expect(self.page.get_by_text("Preparing AI call")).to_be_visible()
 
+    def ai_call_schedule(self,data):
+        trials = self.page.locator(
+            "(//div[@class='flex flex-col md:flex-row md:items-center justify-between'])").filter(
+            has_text="+9779843125788")
+        trials.get_by_role("button", name="AI Call").first.click()
+        self.page.locator("input[type='date']").fill(data['date'])
+
+        time_picker = self.page.locator("(//div[contains(@class,'flex gap-2')])[3]")
+        # for Hour
+        time_picker.locator("svg.lucide-chevron-down.h-4").nth(0).click()
+        self.page.get_by_role("option", name=f"{data['hr']}").click()
+
+        # for min
+        time_picker.locator("svg.lucide-chevron-down.h-4").nth(1).click()
+        self.page.get_by_role("option", name=f"{data['min']}").click()
+
+        # for AM/PM
+        time_picker.locator("svg.lucide-chevron-down.h-4").nth(2).click()
+        self.page.get_by_role("option", name=f"{data['am/pm']}").click()
+
+        self.page.get_by_role("button", name="Schedule call").click()
+
+        expect(self.page.locator("div.Toastify__toast")).to_contain_text("AI call scheduled successfully")
+        time.sleep(3)

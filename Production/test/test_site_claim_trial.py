@@ -17,7 +17,7 @@ def test_claim_trial(playwright:Playwright):
     obj.claim_trial_form(
         {"firstname":"anish",
          "lastname":"shrestha",
-         "email":"nami@gmail.com",
+         "email":"qa.site1.1@gmail.com",
          "company":"probits",
         "phone":"9843125788",
          "country_code":"Nepal (+977)"

@@ -52,7 +52,7 @@ def test_claim_trial_invalid_data(playwright:Playwright):
          "lastname":"shrestha",
          "email":"anish@gma",
          "company":"probits",
-        "phone":"0457896321"}
+        "phone":"04578961"}
     )
 
 def test_claim_trial_empty_field(playwright:Playwright):

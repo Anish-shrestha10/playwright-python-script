@@ -10,4 +10,7 @@ def test_site_trial(playwright:Playwright):
             "email": "qa.site1.1@gmail.com",
             "password": "Password@123"
         })
-    obj.edit_AI_call_question()
+    obj.edit_AI_call_question(
+        {
+         "trial":"Open Label Study of Acthar SQ Gel Injection in Patients With Active Anterior Uveitis"
+        })

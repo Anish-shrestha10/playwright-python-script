@@ -9,6 +9,7 @@ class editAICallQuestion:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://dev.clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def navigate(self, data):
         self.page.get_by_role("button", name="Log in").click()
@@ -20,10 +21,11 @@ class editAICallQuestion:
 
         self.page.get_by_role("link", name="Trials").click()
 
-    def edit_AI_call_question(self):
+    def edit_AI_call_question(self,data):
         self.page.get_by_role("tab", name=re.compile(r"All trials", re.IGNORECASE)).click()
         time.sleep(3)
-
+        # Computed Tomography Coronary Angiography for the Prevention of Myocardial Infarction (The SCOT-HEART 2 Trial)
+        self.page.get_by_placeholder("Search trials...").fill(data['trail'])
         self.page.locator("svg.lucide-ellipsis-vertical").first.click()
         self.page.get_by_text("Edit trial").first.click()
         question="gender?"

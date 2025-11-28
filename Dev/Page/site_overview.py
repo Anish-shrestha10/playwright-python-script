@@ -8,6 +8,7 @@ class SiteOverview:
         self.browser = plawright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://www.clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def navigate(self):
         self.page.get_by_role("button", name="Log in").click()

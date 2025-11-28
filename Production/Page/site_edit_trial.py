@@ -26,6 +26,8 @@ class editTrial:
 
         self.page.get_by_role("tab", name=re.compile(r"All trials", re.IGNORECASE)).click()
         time.sleep(3)
+
+        self.page.get_by_placeholder("Search trials...").fill(data['trial'])
         self.page.locator("svg.lucide-ellipsis-vertical").first.click()
         self.page.get_by_text("Edit trial").first.click()
         time.sleep(3)
@@ -41,7 +43,7 @@ class editTrial:
         self.page.get_by_placeholder("Enter exclusion criteria criterion...").last.fill(data['exclusion_question'])
 
         self.page.get_by_role("button", name="Save").click()
-        time.sleep(2)
+        time.sleep(3)
         # filter inclusion text that you want to delete and click on trash button
         del_inclusion = self.page.locator("div.flex.items-start").filter(
             has=self.page.locator(f"input[value={data['inclusive_question']}]"))

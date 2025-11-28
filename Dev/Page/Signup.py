@@ -9,6 +9,7 @@ class Signup:
         self.context = self.browser.new_context()
         self.page = self.context.new_page()
         self.page.goto("https://dev.clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def navigate(self):
         self.page.get_by_role("button", name="Get started").click()

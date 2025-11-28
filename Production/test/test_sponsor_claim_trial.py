@@ -35,7 +35,8 @@ def test_claim_trial_without_login(playwright:Playwright):
          "lastname":"smith",
          "email":"qa.sponsor1.1@gmail.com",
          "company":"probits",
-        "phone":"0457896321"}
+        "phone":"0457896321",
+         "country_code":"Australia (+61)"}
     )
 
 def test_claim_trial_empty(playwright:Playwright):

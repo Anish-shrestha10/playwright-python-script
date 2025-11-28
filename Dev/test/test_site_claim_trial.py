@@ -7,7 +7,7 @@ def test_claim_trial(playwright:Playwright):
     obj = ClaimTrial(playwright)
     obj.navigate(
         {
-            "email":"anish@gmail.com",
+            "email":"qa.site1.1@gmail.com",
             "password":"Password@123"
         })
     obj.search_trial(
@@ -69,7 +69,7 @@ def test_claim_trial_invalid_data(playwright:Playwright):
          "lastname":"stha",
          "email":"anish@gmail.com",
          "company":"probit",
-        "phone":"935788"}
+        "phone":"9843125"}
     )
 
 def test_claim_trial_with_sponsor(playwright:Playwright):
