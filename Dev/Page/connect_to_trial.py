@@ -40,7 +40,7 @@ class ConnectToTrial:
         #     self.page.locator("(//*[name()='svg'])[3]").click()
 
         self.page.get_by_placeholder("Enter a number").first.fill("23")
-
+        self.page.locator("(//label)[1]").click()
         self.page.locator("(//label)[4]").click()
         self.page.locator("(//label)[6]").click()
         # weight
@@ -53,8 +53,10 @@ class ConnectToTrial:
         self.page.locator("(//label)[12]").click()
         self.page.locator("(//label)[14]").click()
         self.page.locator("(//label)[16]").click()
+        self.page.locator("(//label)[17]").click()
         self.page.locator("(//label)[19]").click()
-        self.page.locator("(//label)[20]").click()
+        self.page.locator("(//label)[21]").click()
+
         # smoke count
         self.page.get_by_placeholder("Enter a number").nth(3).fill("1")
 
@@ -63,7 +65,7 @@ class ConnectToTrial:
         # eGFR count
         self.page.get_by_placeholder("Enter a number").nth(4).fill("20")
 
-        self.page.locator("(//label)[24]").click()
+
 
         self.page.get_by_role("button", name="Next").click()
         time.sleep(3)

@@ -14,7 +14,7 @@ def test_connect_to_trial(playwright:Playwright):
     obj.QA_section()
     obj.patient_details(
         {
-            "first_name":"Anish",
+            "first_name":"zoro",
             "Last_name":"Shrestha",
             "email":"qa.patients1.1@gmail.com",
             "phone":"9843125788",
@@ -29,7 +29,7 @@ def test_connect_to_trial_without_login(playwright:Playwright):
     obj.QA_section()
     obj.patient_details(
         {
-            "first_name":"Anish",
+            "first_name":"zoro",
             "Last_name":"Shrestha",
             "email":"qa.patients1.1@gmail.com",
             "phone":"9843125788",

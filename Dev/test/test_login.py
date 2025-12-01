@@ -30,7 +30,7 @@ def test_empty_data(playwright:Playwright):
     obj = Login(playwright)
     obj.navigate()
     obj.login( {
-    "user_email": "anish@gmail.com",
+    "user_email": "zoro@gmail.com",
     "user_password": ""
   })
 

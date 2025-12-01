@@ -48,7 +48,7 @@ def test_claim_trial_invalid_data(playwright:Playwright):
             "condition": "cancer",
         })
     obj.claim_trial_form(
-        {"firstname":"anish",
+        {"firstname":"zoro",
          "lastname":"shrestha",
          "email":"anish@gma",
          "company":"probits",
@@ -69,7 +69,7 @@ def test_claim_trial_empty_field(playwright:Playwright):
     obj.claim_trial_form(
         {"firstname":"",
          "lastname":"",
-         "email":"anish@gmail.com",
+         "email":"qa.site1.1@gmail.com",
          "company":"probits",
         "phone":"0457896321"}
     )
@@ -78,7 +78,7 @@ def test_claim_trial_with_site(playwright:Playwright):
     obj = ClaimTrial(playwright)
     obj.navigate(
         {
-            "email":"anish@gmail.com",
+            "email":"qa.site1.1@gmail.com",
             "password":"Password@123"
         })
     obj.search_trial(

@@ -10,7 +10,7 @@ def test_site_profile(playwright:Playwright):
             "password":"Password@123"
         })
     obj.update_personal_information({
-      "first_name": "Anish",
+      "first_name": "zoro",
       "last_name": "shrestha",
       "phone": "9843125788",
       "organization": "probits"
@@ -30,7 +30,7 @@ def test_site_profile_empty_fields(playwright:Playwright):
     obj = Profile(playwright)
     obj.navigate(
         {
-            "email":"anish@gmail.com",
+            "email":"qa.site1.1@gmail.com",
             "password":"Password@123"
         })
     obj.update_personal_information({

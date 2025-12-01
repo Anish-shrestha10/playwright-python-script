@@ -12,7 +12,7 @@ def test_help(playwright:Playwright):
         })
     obj.form(
         {
-            "fullname":"Anish shrestha",
+            "fullname":"zoro shrestha",
             "country_code":"Nepal (+977)",
             "number":"9843125788",
             "email":"anish@gmail.com",
@@ -29,7 +29,7 @@ def test_invalid_data(playwright:Playwright):
         })
     obj.form(
         {
-            "fullname":"Anish shrestha",
+            "fullname":"zoro shrestha",
             "country_code":"Nepal (+977)",
             "number":"98431258",
             "email":"anish@gmail.com",
@@ -46,7 +46,7 @@ def test_invalid_email(playwright:Playwright):
         })
     obj.form(
         {
-            "fullname":"Anish shrestha",
+            "fullname":"zoro shrestha",
             "country_code":"Nepal (+977)",
             "number":"98431258",
             "email":"anish@gma",
