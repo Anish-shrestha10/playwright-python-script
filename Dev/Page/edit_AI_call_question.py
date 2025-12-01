@@ -25,7 +25,7 @@ class editAICallQuestion:
         self.page.get_by_role("tab", name=re.compile(r"All trials", re.IGNORECASE)).click()
         time.sleep(3)
         # Computed Tomography Coronary Angiography for the Prevention of Myocardial Infarction (The SCOT-HEART 2 Trial)
-        self.page.get_by_placeholder("Search trials...").fill(data['trail'])
+        self.page.get_by_placeholder("Search trials...").fill(data['trial'])
         self.page.locator("svg.lucide-ellipsis-vertical").first.click()
         self.page.get_by_text("Edit trial").first.click()
         question="gender?"

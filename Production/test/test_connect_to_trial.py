@@ -14,8 +14,8 @@ def test_connect_to_trial(playwright:Playwright):
     obj.QA_section()
     obj.patient_details(
         {
-            "first_name":"Anish",
-            "Last_name":"Shrestha",
+            "first_name":"test",
+            "Last_name":"test",
             "email":"qa.patients1.1+1@gmail.com",
             "phone":"9843125788",
             "month":"11",

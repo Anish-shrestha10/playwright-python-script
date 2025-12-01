@@ -1,6 +1,6 @@
 from playwright.sync_api import Playwright
 
-from Dev.Page.Site_profile import Profile
+from Dev.Page.Site_edit_profile import Profile
 
 def test_site_profile(playwright:Playwright):
     obj = Profile(playwright)

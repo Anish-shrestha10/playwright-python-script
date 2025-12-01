@@ -47,7 +47,7 @@ class editPhoneCall:
         time.sleep(2)
         self.page.get_by_role("button", name="Save changes").click()
         self.page.get_by_role("button", name="Save").click()
-        time.sleep(2)
+        time.sleep(3)
 
         new_question.locator("svg.lucide-trash2").click()
         time.sleep(2)

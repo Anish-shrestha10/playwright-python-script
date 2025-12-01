@@ -25,11 +25,6 @@ def test_connect_to_trial(playwright:Playwright):
 
 def test_connect_to_trial_without_login(playwright:Playwright):
     obj = ConnectToTrial(playwright)
-    # obj.navigate(
-    #     {
-    #         "email":"qa.patients1.1@gmail.com",
-    #         "password":"Password@123",
-    #     })
     obj.search_trial()
     obj.QA_section()
     obj.patient_details(

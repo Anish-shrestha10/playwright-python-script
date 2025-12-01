@@ -28,7 +28,12 @@ class ConnectToTrial:
         time.sleep(2)
 
     def QA_section(self):
-        self.page.get_by_role("button", name="Get started").nth(1).click()
+        time.sleep(2)
+        count = self.page.get_by_role("button", name="Get started").count()
+        if count >= 2:
+            self.page.get_by_role("button", name="Get started").nth(1).click()
+        else:
+            self.page.get_by_role("button", name="Get started").click()
 
         for i in range(23):
             self.page.locator("(//*[name()='svg'])[3]").click()

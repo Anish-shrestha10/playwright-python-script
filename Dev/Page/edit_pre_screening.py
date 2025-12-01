@@ -44,11 +44,11 @@ class editPreScreening:
 
         new_question = self.page.locator("div.p-3.gap-3").filter(has_text=question)
 
-        # click on trash icon
+        # click on edit icon
         new_question.wait_for(state="visible", timeout=60000)
         new_question.locator("svg.lucide-pen-line").click()
         self.page.get_by_placeholder("Enter your criteria...").fill("are you a foodie?")
-        time.sleep(2)
+        time.sleep(3)
         # click on save changes inside edit card
         self.page.get_by_role("button", name="Save changes").click()
         self.page.get_by_role("button", name="Save").click()
