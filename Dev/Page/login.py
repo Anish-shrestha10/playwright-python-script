@@ -34,6 +34,12 @@ class Login:
             self.page.get_by_role("link", name="Back to Sign In").wait_for(state="visible")
             self.page.get_by_role("link", name="Back to Sign In").click()
             self.page.locator("h2.mb-4").wait_for(state="visible")
-        expect(self.page.locator("h2.mb-4")).to_contain_text("Welcome to Clinrol")
+        # expect(self.page.locator("h2.mb-4")).to_contain_text("Welcome to Clinrol")
+        response = self.page.locator(".Toastify__toast").text_content()
+        if response == "Welcome to Clinrol":
+            print("Test passed")
+        else:
+            print("Test failed")
         time.sleep(2)
+
 

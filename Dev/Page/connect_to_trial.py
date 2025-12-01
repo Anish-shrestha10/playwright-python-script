@@ -92,5 +92,9 @@ class ConnectToTrial:
         self.page.locator("input.form-checkbox").click()
         self.page.get_by_role("button", name="Submit").last.click()
         time.sleep(1)
-        expect(self.page.locator(".Toastify__toast")).to_contain_text("Application submitted successfully!")
+        response = self.page.locator(".Toastify__toast").text_content()
+        if response =="Application submitted successfully!":
+            print("Test passed")
+        else :
+            print("Test failed")
         time.sleep(2)

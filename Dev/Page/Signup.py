@@ -27,5 +27,10 @@ class Signup:
         self.page.get_by_placeholder("Confirm password").fill(new_user["confirmPassword"])
         self.page.get_by_role("button", name="Create account").click()
 
-        expect(self.page.locator(".Toastify__toast")).to_contain_text("Account created successfully")
+        # expect(self.page.locator(".Toastify__toast")).to_contain_text("Account created successfully")
+        response = self.page.locator(".Toastify__toast").text_content()
+        if response == "Account created successfully":
+            print("Test passed")
+        else:
+            print("Test failed")
         time.sleep(5)

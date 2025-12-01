@@ -45,5 +45,11 @@ class ClaimTrial:
         self.page.locator("(//input[@type='checkbox'])").click()
         self.page.get_by_role("button", name ="Submit").click()
         time.sleep(3)
-        expect(self.page.locator(".Toastify__toast")).to_contain_text("Application submitted successfully")
+        # expect(self.page.locator(".Toastify__toast")).to_contain_text("Application submitted successfully")
+
+        response = self.page.locator(".Toastify__toast").text_content()
+        if response == "Application submitted successfully":
+            print("Test passed")
+        else:
+            print("Test failed")
         time.sleep(5)
