@@ -92,9 +92,9 @@ class ConnectToTrial:
         self.page.locator("input.form-checkbox").click()
         self.page.get_by_role("button", name="Submit").last.click()
         time.sleep(1)
-        response = self.page.locator(".Toastify__toast").text_content()
+        response = self.page.locator(".Toastify__toast").first.text_content()
         if response =="Application submitted successfully!":
-            print("Test passed")
+            print(f"Test passed : {response}")
         else :
-            print("Test failed")
+            print(f"Test failed : {response}")
         time.sleep(2)

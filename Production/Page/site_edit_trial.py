@@ -43,7 +43,7 @@ class editTrial:
         self.page.get_by_placeholder("Enter exclusion criteria criterion...").last.fill(data['exclusion_question'])
 
         self.page.get_by_role("button", name="Save").click()
-        time.sleep(3)
+        time.sleep(4)
         # filter inclusion text that you want to delete and click on trash button
         del_inclusion = self.page.locator("div.flex.items-start").filter(
             has=self.page.locator(f"input[value={data['inclusive_question']}]"))
@@ -60,7 +60,7 @@ class editTrial:
 
         response = self.page.locator(".Toastify__toast").text_content()
         if response == "Trial updated successfully":
-            print("Test passed")
+            print(f"Test passed : {response}")
         else:
-            print("Test failed")
+            print(f"Test failed : {response}")
         time.sleep(5)

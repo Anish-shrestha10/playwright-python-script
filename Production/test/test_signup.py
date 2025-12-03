@@ -7,16 +7,16 @@ def test_valid_data(playwright:Playwright):
     obj = Signup(playwright)
     obj.navigate()
     obj.signup({
-    "first_name": "robin",
+    "first_name": "Patient",
     "last_name": "patient",
-    "email": "qa.patients1.1+18@gmail.com",
+    "email": "qa.site1.1+57@gmail.com",
     "selectOption": "Site",
     "Organization": "probits",
     "password": "Password@123",
     "confirmPassword":  "Password@123"
     })
 
-def test_duplicate_email(playwright: Playwright):
+def test_existing_email(playwright: Playwright):
     obj = Signup(playwright)
     obj.navigate()
     obj.signup({
@@ -76,7 +76,7 @@ def test_empty_data(playwright: Playwright):
       "first_name": "",
     "last_name": "",
     "email": "",
-    "selectOption": "",
+    "selectOption": "Patient",
       "Organization": "",
     "password": "",
     "confirmPassword":  ""

@@ -55,7 +55,7 @@ def test_claim_trial_empty(playwright:Playwright):
          "lastname": "",
          "email": "robin@gmail.com",
          "company": "Probits",
-         "phone": "04576321",
+         "phone": "0457632154",
          "country_code":"Australia (+61)"}
     )
 

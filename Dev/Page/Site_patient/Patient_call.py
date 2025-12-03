@@ -22,7 +22,7 @@ class callPatient:
         time.sleep(2)
 
     def call_patient(self):
-        trials = self.page.locator("(//div[@class='flex flex-col md:flex-row md:items-center justify-between'])").filter(has_text = "+9779843125788")
+        trials = self.page.locator("(//div[@class='flex flex-1 w-full flex-col justify-between md:flex-row md:items-center'])").filter(has_text = "+9779843125788")
         trials.get_by_role("button", name="call").first.click()
         self.page.get_by_role("button", name="Start Call").click()
         ringing = self.page.get_by_text("Ringing")

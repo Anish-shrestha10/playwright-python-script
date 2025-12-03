@@ -19,11 +19,11 @@ class filterByTrail:
         self.page.get_by_role("link", name="Patients").click()
         time.sleep(2)
 
-    def filter_by_trail(self):
+    def filter_by_trail(self,data):
         self.page.get_by_role("button", name="Filter by trial").click()
-        self.page.get_by_role("menuitem").filter(has_text = "Open label Study").click()
+        self.page.get_by_role("menuitem").filter(has_text = f"{data['trial']}").click()
 
-        trials = self.page.locator("(//div[@class='flex flex-col md:flex-row md:items-center justify-between'])", has_text = "Open label Study")
+        trials = self.page.locator("(//div[@class='flex flex-col md:flex-row md:items-center justify-between'])", has_text = f"{data['trial']}")
         count = trials.count()
         print(count)
         for i in range(count):

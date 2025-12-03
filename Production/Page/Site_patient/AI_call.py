@@ -36,7 +36,7 @@ class AiCall:
         trials.get_by_role("button", name="AI Call").first.click()
         self.page.locator("input[type='date']").fill(data['date'])
 
-        time_picker = self.page.locator("(//div[contains(@class,'flex gap-2')])[3]")
+        time_picker = self.page.get_by_role("dialog")
         # for Hour
         time_picker.locator("svg.lucide-chevron-down.h-4").nth(0).click()
         self.page.get_by_role("option", name=f"{data['hr']}").click()
@@ -53,9 +53,13 @@ class AiCall:
 
         # expect(self.page.locator("div.Toastify__toast")).to_contain_text("AI call scheduled successfully")
 
-        response = self.page.locator(".Toastify__toast").text_content()
-        if response == "AI call scheduled successfully":
-            print("Test passed")
+        time.sleep(3)
+        if self.page.locator(".Toastify__toast").is_visible():
+            response = self.page.locator(".Toastify__toast").text_content()
+            if response == "AI call scheduled successfully":
+                print(f"Test passed : {response}")
+            else:
+                print(f"Test failed : {response}")
         else:
-            print("Test failed")
+            print(f"Test failed")
         time.sleep(3)

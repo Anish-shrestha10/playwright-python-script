@@ -63,7 +63,7 @@ class editPreScreening:
 
         response = self.page.locator(".Toastify__toast").text_content()
         if response == "Trial updated successfully":
-            print("Test passed")
+            print(f"Test passed : {response}")
         else:
-            print("Test failed")
+            print(f"Test failed : {response}")
         time.sleep(5)

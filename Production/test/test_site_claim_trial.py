@@ -20,7 +20,8 @@ def test_claim_trial(playwright:Playwright):
          "email":"qa.site1.1@gmail.com",
          "company":"probits",
         "phone":"9843125788",
-         "country_code":"Nepal (+977)"
+         "country_code":"Nepal (+977)",
+         "issue": "claim requested"
          }
     )
 
@@ -36,7 +37,8 @@ def test_claim_trial_without_login(playwright:Playwright):
          "email":"nami@gmail.com",
          "company":"probits",
         "phone":"9843125788",
-         "country_code":"Nepal (+977)"}
+         "country_code":"Nepal (+977)",
+         "issue":"User have to login in"}
     )
 
 def test_claim_trial_empty(playwright:Playwright):
@@ -56,7 +58,8 @@ def test_claim_trial_empty(playwright:Playwright):
          "email":"nami@gmail.com",
          "company":"probits",
         "phone":"9843125788",
-         "country_code":"Nepal (+977)"
+         "country_code":"Nepal (+977)",
+         "issue":"empty fields"
          }
     )
 
@@ -77,11 +80,12 @@ def test_claim_trial_invalid_email(playwright:Playwright):
          "email":"nami@gma",
          "company":"probits",
         "phone":"9843125788",
-         "country_code":"Nepal (+977)"
+         "country_code":"Nepal (+977)",
+         "issue":"invalid credentials"
          }
     )
 
-def test_claim_trial_with_sponsor(playwright:Playwright):
+def test_claim_trial_with_sponsor_login(playwright:Playwright):
     obj = ClaimTrial(playwright)
     obj.navigate(
         {
@@ -98,5 +102,7 @@ def test_claim_trial_with_sponsor(playwright:Playwright):
          "email":"qa.site1.1@gmail.com",
          "company":"probits",
         "phone":"9843125788",
-         "country_code":"Nepal (+977)"}
+         "country_code":"Nepal (+977)",
+         "issue":"site user should login to claim as site"
+         }
     )

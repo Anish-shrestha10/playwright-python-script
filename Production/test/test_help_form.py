@@ -31,7 +31,7 @@ def test_invalid_data(playwright:Playwright):
         {
             "fullname":"Anish shrestha",
             "country_code":"Nepal (+977)",
-            "number":"98431258",
+            "number":"984",
             "email":"anish@gmail.com",
             "role":"Sponsor",
             "message":"hello world"

@@ -53,3 +53,20 @@ def test_invalid_email(playwright:Playwright):
             "role":"Sponsor",
             "message":"hello world"
         })
+
+def test_empty_field(playwright:Playwright):
+    obj = HelpForm(playwright)
+    obj.navigate(
+        {
+            "email":"qa.site1.1@gmail.com",
+            "password":"Password@123"
+        })
+    obj.form(
+        {
+            "fullname":"",
+            "country_code":"Nepal (+977)",
+            "number":"",
+            "email":"",
+            "role":"Sponsor",
+            "message":""
+        })

@@ -14,9 +14,9 @@ def test_connect_to_trial(playwright:Playwright):
     obj.QA_section()
     obj.patient_details(
         {
-            "first_name":"test",
-            "Last_name":"test",
-            "email":"qa.patients1.1+1@gmail.com",
+            "first_name":"zoro",
+            "Last_name":"Shrestha",
+            "email":"qa.patients1.1@gmail.com",
             "phone":"9843125788",
             "month":"11",
             "day":"20",
@@ -29,9 +29,9 @@ def test_connect_to_trial_without_login(playwright:Playwright):
     obj.QA_section()
     obj.patient_details(
         {
-            "first_name":"Anish",
+            "first_name":"luffy",
             "Last_name":"Shrestha",
-            "email":"qa.patients1.1+1@gmail.com",
+            "email":"qa.patients1.1@gmail.com",
             "phone":"9843125788",
             "month":"11",
             "day":"20",
@@ -61,9 +61,9 @@ def test_connect_to_trial_invalid_data(playwright:Playwright):
         {
             "first_name": "test",
             "Last_name": "test",
-            "email": "qa.patients1.1@gnma",
-            "phone": "98463178",
+            "email": "qa.patients1.m",
+            "phone": "9846312578",
             "month": "3",
-            "day": "55",
+            "day": "5",
             "year": "198"
         })

@@ -20,12 +20,12 @@ class filterByStatus:
         self.page.get_by_role("link", name="Patients").click()
         time.sleep(2)
 
-    def filter_by_status(self):
+    def filter_by_status(self,data):
         self.page.get_by_role("button", name="Filter by Status").click()
-        self.page.get_by_role("menuitemcheckbox").filter(has_text="New Referral").click()
-        trials = self.page.locator("(//div[@class='flex flex-col md:flex-row md:items-center justify-between'])")
-        count = trials.count()
+        self.page.get_by_role("menuitemcheckbox").filter(has_text=f"{data['status']}").click()
+        status = self.page.locator("div.flex.items-center.cursor-pointer")
+        count = status.count()
         print(count)
         for i in range(count):
-            expect(trials.nth(i)).to_contain_text("New referral")
+            expect(status.nth(i)).to_contain_text(f"{data['status']}")
         time.sleep(3)

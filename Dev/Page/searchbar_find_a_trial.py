@@ -35,4 +35,5 @@ class SearchBar:
         if location != "":
             place = trials.nth(0).locator("div.mb-2.flex.items-center.gap-1").nth(1)
             expect(place).to_have_text(re.compile(searchdata['place'], re.IGNORECASE))
+            print("Test Passed")
         time.sleep(2)

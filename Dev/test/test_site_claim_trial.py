@@ -72,7 +72,7 @@ def test_claim_trial_invalid_data(playwright:Playwright):
         "phone":"9843125"}
     )
 
-def test_claim_trial_with_sponsor(playwright:Playwright):
+def test_claim_trial_with_sponsor_login(playwright:Playwright):
     obj = ClaimTrial(playwright)
     obj.navigate(
         {

@@ -35,8 +35,10 @@ class ConnectToTrial:
         else:
             self.page.get_by_role("button", name="Get started").click()
 
-        for i in range(23):
-            self.page.locator("(//*[name()='svg'])[3]").click()
+        # for i in range(23):
+        #     self.page.locator("(//*[name()='svg'])[3]").click()
+
+        self.page.get_by_placeholder("Enter a number").first.fill("23")
 
         self.page.locator("(//label)[1]").click()
         self.page.locator("(//label)[4]").click()
@@ -79,9 +81,9 @@ class ConnectToTrial:
         time.sleep(1)
         # expect(self.page.locator(".Toastify__toast")).to_contain_text("Application submitted successfully!")
 
-        response = self.page.locator(".Toastify__toast").text_content()
+        response = self.page.locator(".Toastify__toast").first.text_content()
         if response == "Application submitted successfully!":
-            print("Test passed")
+            print(f"Test passed : {response}")
         else:
-            print("Test failed")
+            print(f"Test failed : {response}")
         time.sleep(2)

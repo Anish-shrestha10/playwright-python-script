@@ -9,8 +9,8 @@ def test_valid_data(playwright:Playwright):
     obj.signup({
     "first_name": "Patient",
     "last_name": "Shrestha",
-    "email": "qa.sponsor1.1+21@gmail.com",
-    "selectOption": "Sponsor",
+    "email": "qa.site1.1+15@gmail.com",
+    "selectOption": "Site",
     "Organization": "probits",
     "password": "Password@123",
     "confirmPassword":  "Password@123"
@@ -76,7 +76,7 @@ def test_empty_data(playwright: Playwright):
       "first_name": "",
     "last_name": "",
     "email": "",
-    "selectOption": "",
+    "selectOption": "Patient",
       "Organization": "",
     "password": "",
     "confirmPassword":  ""

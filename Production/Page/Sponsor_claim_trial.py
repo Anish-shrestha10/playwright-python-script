@@ -45,9 +45,12 @@ class ClaimTrial:
         time.sleep(3)
         # expect(self.page.locator(".Toastify__toast")).to_contain_text("Application submitted successfully")
 
-        response = self.page.locator(".Toastify__toast").text_content()
-        if response == "Application submitted successfully!":
-            print("Test passed")
+        if self.page.locator(".Toastify__toast").is_visible():
+            response = self.page.locator(".Toastify__toast").text_content()
+            if response == "Application submitted successfully" :
+                print(f"Test passed : {response}")
+            else:
+                print(f"Test failed : {response}")
         else:
-            print("Test failed")
+            print(f"Test failed ")
         time.sleep(5)

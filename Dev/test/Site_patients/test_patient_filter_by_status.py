@@ -10,4 +10,7 @@ def test_patient_filter_by_status(playwright:Playwright):
             "email":"anish@gmail.com",
             "password":"Password@123"
         })
-    obj.filter_by_status()
+    obj.filter_by_status(
+        {
+            "status":"New referral"
+        })

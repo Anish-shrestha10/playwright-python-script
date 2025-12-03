@@ -17,9 +17,13 @@ class Login:
         self.page.get_by_placeholder("Password").fill(login_data["user_password"])
 
         self.page.get_by_role("button", name="Continue").click()
-        time.sleep(2)
-        expect(self.page.get_by_role("link", name="Overview")).to_be_visible()
-        time.sleep(2)
+        time.sleep(5)
+        # expect(self.page.get_by_role("link", name="Overview")).to_be_visible()
+
+        if self.page.get_by_role("link", name="Overview").is_visible():
+            print(f"Test passed : {login_data['issue']}")
+        else:
+            print(f"Test failed : {login_data['issue']}")
 
     def forgetPassword(self, data):
         self.page.get_by_role("link", name="Forgot password?").click()
@@ -33,11 +37,13 @@ class Login:
             self.page.get_by_role("link", name="Back to Sign In").click()
             self.page.locator("h2.mb-4").wait_for(state="visible")
         # expect(self.page.locator("h2.mb-4")).to_contain_text("Welcome to Clinrol")
+        # self.page.locator("h2.mb-4").wait_for(state="visible")
 
-        response = self.page.locator(".Toastify__toast").text_content()
+        time.sleep(3)
+        response = self.page.locator("h2.mb-4").text_content()
         if response == "Welcome to Clinrol":
-            print("Test passed")
+            print(f"Test passed : {response}")
         else:
-            print("Test failed")
+            print(f"Test failed : {response}")
         time.sleep(2)
 

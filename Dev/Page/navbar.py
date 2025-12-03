@@ -53,3 +53,4 @@ class Navbar:
         self.page.get_by_role("button", name="Get started").click()
         time.sleep(2)
         expect(self.page.locator("h2.mb-4")).to_contain_text("Create your free account")
+        print("Test Passed")

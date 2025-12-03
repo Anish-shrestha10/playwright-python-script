@@ -68,8 +68,8 @@ class Profile:
 
         response = self.page.locator(".Toastify__toast").text_content()
         if response == "Profile updated successfully":
-            print("Test passed")
+            print(f"Test passed : {response}")
         else:
-            print("Test failed")
+            print(f"Test failed : {response}")
         # Short wait for UI update (optional, use only if UI flickers)
         time.sleep(1)

@@ -57,7 +57,7 @@ class editPhoneCall:
         # expect(self.page.locator(".Toastify__toast")).to_contain_text("Trial updated successfully")
         response = self.page.locator(".Toastify__toast").text_content()
         if response == "Trial updated successfully":
-            print("Test passed")
+            print(f"Test passed : {response}")
         else:
-            print("Test failed")
+            print(f"Test failed : {response}")
         time.sleep(5)

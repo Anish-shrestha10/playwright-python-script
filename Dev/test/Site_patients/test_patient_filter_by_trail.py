@@ -7,10 +7,10 @@ def test_patient_filter_by_trail(playwright:Playwright):
     obj = filterByTrail(playwright)
     obj.navigate(
         {
-            "email":"anish@gmail.com",
+            "email":"qa.site1.1@gmail.com",
             "password":"Password@123"
         })
     obj.filter_by_trail(
         {
-            "trial":"Open-label Study"
+            "trial":"SGLT2"
         })

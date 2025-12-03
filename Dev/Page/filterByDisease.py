@@ -26,4 +26,5 @@ class FilterByCondition:
         trials = self.page.locator("div.flex.h-full")
         title = trials.nth(0).locator("h2.font-bold")
         expect(title).to_have_text(re.compile(data['disease'], re.IGNORECASE))
+        print("Test Passed")
         time.sleep(2)

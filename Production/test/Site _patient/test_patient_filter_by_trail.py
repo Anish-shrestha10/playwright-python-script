@@ -10,4 +10,7 @@ def test_patient_filter_by_trail(playwright:Playwright):
             "email":"qa.site1.1@gmail.com",
             "password":"Password@123"
         })
-    obj.filter_by_trail()
+    obj.filter_by_trail(
+        {
+            "trial":"Open label Study"
+        })

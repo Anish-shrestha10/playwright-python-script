@@ -19,7 +19,8 @@ def test_claim_trial(playwright:Playwright):
          "lastname":"smith",
          "email":"qa.sponsor1.1@gmail.com",
          "company":"probits",
-        "phone":"0457896321"}
+        "phone":"0457896321"
+         }
     )
 
 def test_claim_trial_without_login(playwright:Playwright):
@@ -33,7 +34,8 @@ def test_claim_trial_without_login(playwright:Playwright):
          "lastname":"smith",
          "email":"qa.sponsor1.1@gmail.com",
          "company":"probits",
-        "phone":"0457896321"}
+        "phone":"0457896321"
+         }
     )
 
 def test_claim_trial_invalid_data(playwright:Playwright):
@@ -52,7 +54,8 @@ def test_claim_trial_invalid_data(playwright:Playwright):
          "lastname":"shrestha",
          "email":"anish@gma",
          "company":"probits",
-        "phone":"04578961"}
+        "phone":"04578961"
+         }
     )
 
 def test_claim_trial_empty_field(playwright:Playwright):
@@ -71,10 +74,11 @@ def test_claim_trial_empty_field(playwright:Playwright):
          "lastname":"",
          "email":"qa.site1.1@gmail.com",
          "company":"probits",
-        "phone":"0457896321"}
+        "phone":"0457896321"
+         }
     )
 
-def test_claim_trial_with_site(playwright:Playwright):
+def test_claim_trial_with_site_login(playwright:Playwright):
     obj = ClaimTrial(playwright)
     obj.navigate(
         {
