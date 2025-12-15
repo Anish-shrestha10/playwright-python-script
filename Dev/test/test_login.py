@@ -44,7 +44,7 @@ def test_forget_password(playwright:Playwright):
     obj.forgetPassword(
         {
             "reset_email":"qa.site1.1@gmail.com",
-            "issue":"reset link send"
+            "issue":"Password reset link send"
         })
 
 def test_forget_password_empty(playwright:Playwright):

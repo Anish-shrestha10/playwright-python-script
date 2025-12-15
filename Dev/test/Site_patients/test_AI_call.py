@@ -1,8 +1,9 @@
 from playwright.sync_api import Playwright
 
 from Dev.Page.Site_patient.AI_call import AiCall
+from datetime import date
 
-
+today = date.today()
 def test_ai_call(playwright:Playwright):
     obj = AiCall(playwright)
     obj.navigate(
@@ -22,7 +23,7 @@ def test_schedule_ai_call(playwright:Playwright):
         })
     obj.ai_call_schedule(
         {
-            "date":"2025-12-02",
+            "date":f"{today}",
             "hr":"10",
             "min":"00",
             "am/pm":"AM",

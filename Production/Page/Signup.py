@@ -9,6 +9,7 @@ class Signup:
         self.context = self.browser.new_context()
         self.page = self.context.new_page()
         self.page.goto("https://www.clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def navigate(self):
         self.page.get_by_role("button", name="Get started").click()
@@ -25,7 +26,7 @@ class Signup:
         self.page.get_by_placeholder("Create password").fill(new_user["password"])
         self.page.get_by_placeholder("Confirm password").fill(new_user["confirmPassword"])
         self.page.get_by_role("button", name="Create account").click()
-        time.sleep(3)
+        time.sleep(2)
         # expect(self.page.locator(".Toastify__toast")).to_contain_text("Account created successfully")
         if self.page.locator(".Toastify__toast").is_visible():
             response = self.page.locator(".Toastify__toast").text_content()
@@ -34,5 +35,5 @@ class Signup:
             else:
                 print(f"Test failed : {response}")
         else:
-            print(f"Test failed")
+            print(f"Test Failed")
         time.sleep(5)

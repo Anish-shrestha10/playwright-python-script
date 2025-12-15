@@ -53,7 +53,7 @@ class editPhoneCall:
         time.sleep(2)
 
         self.page.get_by_role("button", name="Save").click()
-
+        time.sleep(2)
         # expect(self.page.locator(".Toastify__toast")).to_contain_text("Trial updated successfully")
         response = self.page.locator(".Toastify__toast").text_content()
         if response == "Trial updated successfully":

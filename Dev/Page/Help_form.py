@@ -29,6 +29,7 @@ class HelpForm:
         self.page.get_by_role("checkbox").click()
         self.page.get_by_role("button", name="Send").click()
         # expect(self.page.locator("div.Toastify__toast")).to_contain_text("Message sent successfully!")
+        time.sleep(2)
         if self.page.locator(".Toastify__toast").is_visible():
             response = self.page.locator(".Toastify__toast").text_content()
             if response == "Message sent successfully!":

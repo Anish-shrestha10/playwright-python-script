@@ -52,5 +52,5 @@ class ClaimTrial:
             else:
                 print(f"Test failed : {response}")
         else:
-            print(f"Test failed : {data['issue']}")
+            print(f"Test failed")
         time.sleep(5)

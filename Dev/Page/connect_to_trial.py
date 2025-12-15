@@ -40,32 +40,42 @@ class ConnectToTrial:
         #     self.page.locator("(//*[name()='svg'])[3]").click()
 
         self.page.get_by_placeholder("Enter a number").first.fill("23")
-        self.page.locator("(//label)[1]").click()
-        self.page.locator("(//label)[4]").click()
-        self.page.locator("(//label)[6]").click()
+        self.page.locator("label.flex").nth(0).click()
+        self.page.locator("label.flex").nth(3).click()
+        # self.page.locator("(//label)[6]").click()
         # weight
         self.page.get_by_placeholder("Enter a number").nth(1).fill("50")
 
         # height
         self.page.get_by_placeholder("Enter a number").nth(2).fill("165")
+        self.page.locator("label.flex").nth(5).click()
+        self.page.locator("label.flex").nth(8).click()
+        self.page.locator("label.flex").nth(10).click()
+        self.page.locator("label.flex").nth(12).click()
+        self.page.locator("label.flex").nth(15).click()
+        self.page.locator("label.flex").nth(16).click()
+        self.page.locator("label.flex").nth(18).click()
+        self.page.locator("label.flex").nth(19).click()
 
-        self.page.locator("(//label)[9]").click()
-        self.page.locator("(//label)[12]").click()
-        self.page.locator("(//label)[14]").click()
-        self.page.locator("(//label)[16]").click()
-        self.page.locator("(//label)[17]").click()
-        self.page.locator("(//label)[19]").click()
-        self.page.locator("(//label)[21]").click()
+
+
+        # self.page.locator("(//label)[9]").click()
+        # self.page.locator("(//label)[12]").click()
+        # self.page.locator("(//label)[14]").click()
+        # self.page.locator("(//label)[16]").click()
+        # self.page.locator("(//label)[17]").click()
+        # self.page.locator("(//label)[19]").click()
+        # self.page.locator("(//label)[21]").click()
 
         # smoke count
         self.page.get_by_placeholder("Enter a number").nth(3).fill("1")
 
-        self.page.locator("(//label)[22]").click()
+        self.page.locator("label.flex").nth(20).click()
 
         # eGFR count
         self.page.get_by_placeholder("Enter a number").nth(4).fill("20")
 
-
+        # self.page.locator("label.flex").nth(22).click()
 
         self.page.get_by_role("button", name="Next").click()
         time.sleep(3)
@@ -76,7 +86,7 @@ class ConnectToTrial:
         self.page.get_by_placeholder("Enter your email").fill(data['email'])
         self.page.get_by_role("button", name="Done").click()
         self.page.locator("//button[@aria-label='Select Country Code']//*[name()='svg']").click()
-        self.page.locator("//button[normalize-space()='Nepal (+977)']").click()
+        self.page.locator(f"//button[normalize-space()='{data['country_code']}']").click()
         self.page.get_by_placeholder("Enter your phone number").fill(data['phone'])
         self.page.locator("//button[@aria-label='Select Country Code']//*[name()='svg']").click()
         self.page.locator("span.font-medium").nth(0).click()

@@ -11,6 +11,7 @@ class editTrial:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def navigate(self,data):
         self.page.get_by_role("button", name="Log in").click()
@@ -58,7 +59,7 @@ class editTrial:
 
         # expect(self.page.locator(".Toastify__toast")).to_contain_text("Trial updated successfully")
 
-        response = self.page.locator(".Toastify__toast").text_content()
+        response = self.page.locator(".Toastify__toast").first.text_content()
         if response == "Trial updated successfully":
             print(f"Test passed : {response}")
         else:

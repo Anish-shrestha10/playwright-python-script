@@ -3,7 +3,7 @@ import time
 from playwright.sync_api import Playwright, expect
 
 
-class filterByTrail:
+class ImportBulkPatient:
     def __init__(self, playwright: Playwright):
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
@@ -20,13 +20,15 @@ class filterByTrail:
         self.page.get_by_role("link", name="Patients").click()
         time.sleep(2)
 
-    def filter_by_trail(self,data):
-        self.page.get_by_role("button", name="Filter by trial").click()
-        self.page.get_by_role("menuitem").filter(has_text = f"{data['trial']}").click()
-        time.sleep(3)
-        trials = self.page.locator("(//div[@class='flex items-start space-x-4'])")
-        count = trials.count()
-        print(count)
-        for i in range(count):
-            expect(trials.nth(i)).to_contain_text(data['trial'])
-        time.sleep(3)
+    def import_bulk_patient(self):
+        self.page.get_by_role("button", name="Import").click()
+        self.page.get_by_role("menuitem", name="Import from file").click()
+        time.sleep(2)
+        self.page.locator("input[type='file']").set_input_files("C:/Users/USER/Desktop/Clinrol automation/playwright-python-script/Test_patients_dev.csv")
+        time.sleep(2)
+
+        self.page.locator("#consent-checkbox").click()
+        self.page.get_by_role("button", name="Import Applications").click()
+
+        expect(self.page.locator(".Toastify__toast")).to_contain_text("Successfully imported")
+

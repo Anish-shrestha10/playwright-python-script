@@ -14,10 +14,11 @@ def test_connect_to_trial(playwright:Playwright):
     obj.QA_section()
     obj.patient_details(
         {
-            "first_name":"zoro",
-            "Last_name":"Shrestha",
+            "first_name":"probits",
+            "Last_name":"testing1",
             "email":"qa.patients1.1@gmail.com",
-            "phone":"9843125788",
+            "country_code":"Australia (+61)",
+            "phone":"468098739",
             "month":"11",
             "day":"20",
             "year":"1980"
@@ -32,6 +33,7 @@ def test_connect_to_trial_without_login(playwright:Playwright):
             "first_name":"luffy",
             "Last_name":"Shrestha",
             "email":"qa.patients1.1@gmail.com",
+            "country_code":"Nepal (+977)",
             "phone":"9843125788",
             "month":"11",
             "day":"20",
@@ -47,6 +49,7 @@ def test_connect_to_trial_empty_field(playwright:Playwright):
             "first_name": "",
             "Last_name": "",
             "email": "",
+            "country_code":"Nepal (+977)",
             "phone": "",
             "month": "",
             "day": "",
@@ -61,9 +64,10 @@ def test_connect_to_trial_invalid_data(playwright:Playwright):
         {
             "first_name": "test",
             "Last_name": "test",
-            "email": "qa.patients1.m",
+            "email": "qa.patients1.1gmail.com",
+            "country_code":"Nepal (+977)",
             "phone": "9846312578",
             "month": "3",
-            "day": "5",
+            "day": "55",
             "year": "198"
         })

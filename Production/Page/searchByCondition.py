@@ -9,6 +9,7 @@ class SearchByCondition:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://www.clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def search(self,data):
         self.page.get_by_text("Search by condition").click()

@@ -1,6 +1,6 @@
 from playwright.sync_api import Playwright
 
-from Dev.Page.edit_phone_call import editPhoneCall
+from Dev.Page.edit_phone_call_questions import editPhoneCall
 
 
 def test_site_trial(playwright:Playwright):

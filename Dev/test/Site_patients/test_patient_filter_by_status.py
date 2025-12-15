@@ -7,7 +7,7 @@ def test_patient_filter_by_status(playwright:Playwright):
     obj = filterByStatus(playwright)
     obj.navigate(
         {
-            "email":"anish@gmail.com",
+            "email":"qa.site1.1@gmail.com",
             "password":"Password@123"
         })
     obj.filter_by_status(

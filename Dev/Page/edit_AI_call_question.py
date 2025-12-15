@@ -55,7 +55,7 @@ class editAICallQuestion:
         self.page.get_by_role("button", name="Save").click()
 
         # expect(self.page.locator(".Toastify__toast")).to_contain_text("Trial updated successfully")
-
+        time.sleep(2)
         response = self.page.locator(".Toastify__toast").text_content()
         if response == "Trial updated successfully":
             print(f"Test passed : {response}")

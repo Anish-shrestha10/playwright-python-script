@@ -9,6 +9,7 @@ class SearchByAI:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://www.clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def search(self,data):
         self.page.get_by_placeholder("Enter prompt or search by condition, age or location").fill(data['prompt'])

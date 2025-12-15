@@ -8,6 +8,7 @@ class search_bar:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def navigate(self,data):
         self.page.get_by_role("button", name="Log in").click()
@@ -19,8 +20,7 @@ class search_bar:
         self.page.get_by_role("link", name="Patients").click()
         time.sleep(2)
 
-    def search(self,data):
-
+    def search(self, data):
         self.page.get_by_placeholder("Search by patient").fill(data['patient_name'])
         time.sleep(2)
         trials = self.page.locator(
@@ -31,7 +31,6 @@ class search_bar:
         for i in range(count):
             title = titles.nth(i).text_content()
             print(title)
-
-            assert  data['patient_name'].lower() in title.lower()
+            assert data['patient_name'].lower() in title.lower()
 
         time.sleep(2)

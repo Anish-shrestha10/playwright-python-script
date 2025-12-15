@@ -7,9 +7,9 @@ def test_valid_data(playwright:Playwright):
     obj = Signup(playwright)
     obj.navigate()
     obj.signup({
-    "first_name": "Patient",
+    "first_name": "Site",
     "last_name": "Shrestha",
-    "email": "qa.site1.1+15@gmail.com",
+    "email": "qa.site1.1+32@gmail.com",
     "selectOption": "Site",
     "Organization": "probits",
     "password": "Password@123",

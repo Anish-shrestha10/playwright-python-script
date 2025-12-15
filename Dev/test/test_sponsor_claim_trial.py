@@ -12,7 +12,7 @@ def test_claim_trial(playwright:Playwright):
         })
     obj.search_trial(
         {
-            "condition": "cancer",
+            "condition": "lungs",
         })
     obj.claim_trial_form(
         {"firstname":"zoro",
@@ -54,7 +54,7 @@ def test_claim_trial_invalid_data(playwright:Playwright):
          "lastname":"shrestha",
          "email":"anish@gma",
          "company":"probits",
-        "phone":"04578961"
+        "phone":"0457896154"
          }
     )
 

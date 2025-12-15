@@ -23,6 +23,7 @@ class filterByStatus:
     def filter_by_status(self,data):
         self.page.get_by_role("button", name="Filter by Status").click()
         self.page.get_by_role("menuitemcheckbox").filter(has_text=f"{data['status']}").click()
+        time.sleep(3)
         status = self.page.locator("div.flex.items-center.cursor-pointer")
         count = status.count()
         print(count)

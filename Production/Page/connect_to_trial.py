@@ -8,6 +8,7 @@ class ConnectToTrial:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://www.clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def navigate(self,data):
         self.page.get_by_role("button", name="Log in").click()
@@ -63,7 +64,7 @@ class ConnectToTrial:
         self.page.get_by_placeholder("Enter your email").fill(data['email'])
         self.page.get_by_role("button", name="Done").click()
         self.page.locator("//button[@aria-label='Select Country Code']//*[name()='svg']").click()
-        self.page.locator("//button[normalize-space()='Nepal (+977)']").click()
+        self.page.locator(f"//button[normalize-space()='{data['country_code']}']").click()
         self.page.get_by_placeholder("Enter your phone number").fill(data['phone'])
         self.page.locator("//button[@aria-label='Select Country Code']//*[name()='svg']").click()
         self.page.locator("span.font-medium").nth(0).click()

@@ -8,7 +8,7 @@ def test_search_by_AI(playwright:Playwright):
     obj = SearchByAI(playwright)
     obj.search(
         {
-            "search":"cancer related trial for 20 years old in Sydney"
+            "search":"COPD related trial for 20 years old in Sydney"
         })
 
 def test_search_by_AI_condition(playwright:Playwright):

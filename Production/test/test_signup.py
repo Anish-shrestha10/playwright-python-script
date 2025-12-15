@@ -9,7 +9,7 @@ def test_valid_data(playwright:Playwright):
     obj.signup({
     "first_name": "Patient",
     "last_name": "patient",
-    "email": "qa.site1.1+57@gmail.com",
+    "email": "qa.site1.1+64@gmail.com",
     "selectOption": "Site",
     "Organization": "probits",
     "password": "Password@123",
@@ -20,7 +20,7 @@ def test_existing_email(playwright: Playwright):
     obj = Signup(playwright)
     obj.navigate()
     obj.signup({
-      "first_name": "Patient",
+      "first_name": "Site",
     "last_name": "Shrestha",
     "email": "qa.site1.1@gmail.com",
     "selectOption": "Site",
@@ -36,7 +36,7 @@ def test_invalid_data(playwright: Playwright):
       "first_name": "/*-+",
     "last_name": "/*-+",
     "email": "patient881@gmail.com",
-    "selectOption": "Sponsor",
+    "selectOption": "Patient",
       "Organization": "/*-+",
     "password": "Password@123",
     "confirmPassword":  "Password@123"
@@ -50,7 +50,7 @@ def test_invalid_email(playwright: Playwright):
         "first_name": "Patient",
         "last_name": "Patients",
         "email": "patient52@gmaom",
-        "selectOption": "Site",
+        "selectOption": "Patient",
         "Organization": "probits",
         "password": "Password@123",
         "confirmPassword": "Password@123"

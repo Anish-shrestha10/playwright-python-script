@@ -12,7 +12,7 @@ def test_claim_trial(playwright:Playwright):
         })
     obj.search_trial(
         {
-            "condition":"depression"
+            "condition":"cancer"
         })
     obj.claim_trial_form(
         {"firstname":"law",
@@ -67,9 +67,9 @@ def test_claim_trial_invalid_data(playwright:Playwright):
     obj.claim_trial_form(
         {"firstname":"law",
          "lastname":"stha",
-         "email":"qa.site1.1@gmail.com",
+         "email":"qa.site1.1@gmai",
          "company":"probit",
-        "phone":"9843125"}
+        "phone":"9843125788"}
     )
 
 def test_claim_trial_with_sponsor_login(playwright:Playwright):

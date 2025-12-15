@@ -19,7 +19,7 @@ class Login:
         self.page.get_by_placeholder("Password").fill(login_data["user_password"])
 
         self.page.get_by_role("button", name="Continue").click()
-        time.sleep(6)
+        time.sleep(8)
         # self.page.get_by_role("link", name="Overview").wait_for(state="visible")
         if self.page.get_by_role("link", name="Overview").is_visible():
             print(f"Test passed : {login_data['issue']}")
@@ -41,9 +41,9 @@ class Login:
         time.sleep(3)
         response = self.page.locator("h2.mb-4").text_content()
         if response == "Welcome to Clinrol":
-            print(f"Test passed : {response}")
+            print(f"Test passed : {data['issue']}")
         else:
-            print(f"Test failed : {response}")
+            print(f"Test failed : {data['issue']}")
         time.sleep(2)
 
 

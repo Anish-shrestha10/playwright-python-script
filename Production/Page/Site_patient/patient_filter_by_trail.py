@@ -8,6 +8,7 @@ class filterByTrail:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def navigate(self,data):
         self.page.get_by_role("button", name="Log in").click()
@@ -22,10 +23,10 @@ class filterByTrail:
     def filter_by_trail(self,data):
         self.page.get_by_role("button", name="Filter by trial").click()
         self.page.get_by_role("menuitem").filter(has_text = f"{data['trial']}").click()
-
-        trials = self.page.locator("(//div[@class='flex flex-col md:flex-row md:items-center justify-between'])", has_text = f"{data['trial']}")
+        time.sleep(3)
+        trials = self.page.locator("(//div[@class='flex items-start space-x-4'])")
         count = trials.count()
         print(count)
         for i in range(count):
-            assert trials.nth(i).is_visible()
+            expect(trials.nth(i)).to_contain_text(f"{data['trial']}", ignore_case=True)
         time.sleep(3)

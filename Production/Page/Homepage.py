@@ -7,6 +7,7 @@ class Homepage:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def browse_by_condition(self,data):
         self.page.get_by_role("button", name=f"{data['condition']}").click()

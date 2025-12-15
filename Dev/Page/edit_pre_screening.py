@@ -45,22 +45,26 @@ class editPreScreening:
         new_question = self.page.locator("div.p-3.gap-3").filter(has_text=question)
 
         # click on edit icon
-        new_question.wait_for(state="visible", timeout=60000)
+        time.sleep(2)
+        # response = self.page.locator(".Toastify__toast").text_content()
+        # if response == "Trial updated successfully":
+        #     print(f"Test passed : {response}")
+        # else:
+        #     print(f"Test failed : {response}")
+        # time.sleep(5)
         new_question.locator("svg.lucide-pen-line").click()
         self.page.get_by_placeholder("Enter your criteria...").fill("are you a foodie?")
         time.sleep(3)
         # click on save changes inside edit card
         self.page.get_by_role("button", name="Save changes").click()
         self.page.get_by_role("button", name="Save").click()
-        time.sleep(3)
+        time.sleep(2)
 
         # click on trash icon
         new_question.locator("svg.lucide-trash2").click()
-
         self.page.get_by_role("button", name="Save").click()
-
+        time.sleep(4)
         # expect(self.page.locator(".Toastify__toast")).to_contain_text("Trial updated successfully")
-
         response = self.page.locator(".Toastify__toast").text_content()
         if response == "Trial updated successfully":
             print(f"Test passed : {response}")

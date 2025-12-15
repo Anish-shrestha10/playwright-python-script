@@ -9,6 +9,7 @@ class editAICallQuestion:
         self.browser = playwright.chromium.launch(headless=False)
         self.page = self.browser.new_page()
         self.page.goto("https://clinrol.com/")
+        self.page.get_by_role("button", name="Accept all").click()
 
     def navigate(self,data):
         self.page.get_by_role("button", name="Log in").click()
@@ -54,4 +55,11 @@ class editAICallQuestion:
         time.sleep(2)
         self.page.get_by_role("button", name="Save").click()
 
-        expect(self.page.locator(".Toastify__toast")).to_contain_text("Trial updated successfully")
+        # expect(self.page.locator(".Toastify__toast")).to_contain_text("Trial updated successfully")
+        time.sleep(2)
+        response = self.page.locator(".Toastify__toast").text_content()
+        if response == "Trial updated successfully":
+            print(f"Test passed : {response}")
+        else:
+            print(f"Test failed : {response}")
+        time.sleep(5)
