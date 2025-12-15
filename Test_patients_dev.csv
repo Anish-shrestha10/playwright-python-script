@@ -1,0 +1,3 @@
+location_id,patient_first_name,patient_last_name,patient_email,patient_gender,patient_dob,patient_phone,patient_ethnicity,patient_zip_code
+1539,Probits,testing,qa.patients1.1@gmail.com,MALE,2002-8-5,468098739,WHITE,2000
+
