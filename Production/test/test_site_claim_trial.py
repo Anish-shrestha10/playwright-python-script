@@ -15,8 +15,8 @@ def test_claim_trial(playwright:Playwright):
             "condition":"asthma"
         })
     obj.claim_trial_form(
-        {"firstname":"anish",
-         "lastname":"shrestha",
+        {"firstname":"tester",
+         "lastname":"testing",
          "email":"qa.site1.1@gmail.com",
          "company":"probits",
         "phone":"9843125788",
@@ -32,8 +32,8 @@ def test_claim_trial_without_login(playwright:Playwright):
             "condition":"COPD"
         })
     obj.claim_trial_form(
-        {"firstname":"anish",
-         "lastname":"shrestha",
+        {"firstname":"tester",
+         "lastname":"testing",
          "email":"nami@gmail.com",
          "company":"probits",
         "phone":"9843125788",

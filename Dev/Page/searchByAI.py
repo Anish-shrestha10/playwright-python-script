@@ -21,4 +21,4 @@ class SearchByAI:
             title = trials.nth(0).locator("h2.font-bold")
             expect(title).to_have_text(re.compile(data['search'], re.IGNORECASE))
             print("Test Passed")
-        time.sleep(1)
+        time.sleep(2)

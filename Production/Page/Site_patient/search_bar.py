@@ -22,10 +22,11 @@ class search_bar:
 
     def search(self, data):
         self.page.get_by_placeholder("Search by patient").fill(data['patient_name'])
-        time.sleep(2)
+        time.sleep(4)
         trials = self.page.locator(
-            "(//div[@class='flex flex-col md:flex-row md:items-center justify-between'])")
+            "(//div[@class='rounded-lg border text-card-foreground w-full max-w-full bg-transparent shadow-sm border-none overflow-hidden'])")
         count = trials.count()
+        print(count)
         titles = self.page.locator(
             f"(//h3[@class ='font-medium text-gray-900 cursor-pointer hover:text-green-600 transition-colors'])")
         for i in range(count):

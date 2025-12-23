@@ -43,7 +43,7 @@ class ClaimTrial:
         self.page.get_by_placeholder("Search locations").click()
         # self.page.locator("div.m_92253aa5.mantine-Select-option.m_390b5f4").select_option(index=0)
         self.page.locator("[role='option']").nth(0).click()
-        self.page.locator("(//input[@type='checkbox'])").click()
+        self.page.locator("input.form-checkbox").click()
         self.page.get_by_role("button", name ="Submit").click()
         time.sleep(3)
         # expect(self.page.locator(".Toastify__toast")).to_contain_text("Application submitted successfully")

@@ -24,8 +24,8 @@ def test_schedule_ai_call(playwright:Playwright):
     obj.ai_call_schedule(
         {
             "date":f"{today}",
-            "hr":"10",
-            "min":"00",
+            "hr":"12",
+            "min":"20",
             "am/pm":"AM",
             "issue":"AI call scheduled"
         })

@@ -41,7 +41,7 @@ class ClaimTrial:
         # time.sleep(2)
         self.page.locator("(//li[normalize-space()='Sponsor'])").click()
         # time.sleep(2)
-        self.page.locator("(//input[@type='checkbox'])").click()
+        self.page.locator("input.form-checkbox").click()
         self.page.get_by_role("button", name="Submit").click()
         time.sleep(3)
         # expect(self.page.locator(".Toastify__toast")).to_contain_text("Application submitted successfully")

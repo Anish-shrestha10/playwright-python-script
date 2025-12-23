@@ -16,7 +16,7 @@ def test_claim_trial(playwright:Playwright):
             "condition": "lupus",
         })
     obj.claim_trial_form(
-        {"firstname": "zoro",
+        {"firstname": "sanji",
          "lastname": "smith",
          "email": "robin@gmail.com",
          "company": "probits",

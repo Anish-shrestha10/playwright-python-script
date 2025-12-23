@@ -10,8 +10,8 @@ def test_site_profile(playwright:Playwright):
             "password":"Password@123",
         })
     obj.update_personal_information({
-      "first_name": "Anish",
-      "last_name": "shrestha",
+      "first_name": "Site",
+      "last_name": "User",
       "phone": "9843125788",
       "organization": "probits"
     })

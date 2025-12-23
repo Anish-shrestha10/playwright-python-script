@@ -36,13 +36,11 @@ class ConnectToTrial:
         else:
             self.page.get_by_role("button", name="Get started").click()
 
-        # for i in range(23):
-        #     self.page.locator("(//*[name()='svg'])[3]").click()
 
         self.page.get_by_placeholder("Enter a number").first.fill("23")
         self.page.locator("label.flex").nth(0).click()
         self.page.locator("label.flex").nth(3).click()
-        # self.page.locator("(//label)[6]").click()
+
         # weight
         self.page.get_by_placeholder("Enter a number").nth(1).fill("50")
 
@@ -56,16 +54,6 @@ class ConnectToTrial:
         self.page.locator("label.flex").nth(16).click()
         self.page.locator("label.flex").nth(18).click()
         self.page.locator("label.flex").nth(19).click()
-
-
-
-        # self.page.locator("(//label)[9]").click()
-        # self.page.locator("(//label)[12]").click()
-        # self.page.locator("(//label)[14]").click()
-        # self.page.locator("(//label)[16]").click()
-        # self.page.locator("(//label)[17]").click()
-        # self.page.locator("(//label)[19]").click()
-        # self.page.locator("(//label)[21]").click()
 
         # smoke count
         self.page.get_by_placeholder("Enter a number").nth(3).fill("1")

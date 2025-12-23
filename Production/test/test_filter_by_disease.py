@@ -7,5 +7,5 @@ def test_claim_trial(playwright:Playwright):
     obj.navigate()
     obj.filter(
         {
-            "disease":"Diabetes"
+            "disease":"cancer"
         })

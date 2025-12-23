@@ -12,7 +12,7 @@ def test_claim_trial(playwright:Playwright):
         })
     obj.search_trial(
         {
-            "condition":"cancer"
+            "condition":"heart failure"
         })
     obj.claim_trial_form(
         {"firstname":"law",

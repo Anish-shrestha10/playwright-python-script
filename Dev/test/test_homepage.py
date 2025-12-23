@@ -9,7 +9,6 @@ def test_homepage(playwright:Playwright):
         {
             "condition":"Lung cancer"
         })
-
     obj.how_clinrol_works_section()
     obj.how_clinrol_helps_sponsors_sites()
     obj.trusted_by_over_100k_section(

@@ -3,7 +3,7 @@ from playwright.sync_api import Playwright
 from Dev.Page.Site_patient.patient_filter_by_site import filterBySite
 
 
-def test_patient_filter_by_status(playwright:Playwright):
+def test_patient_filter_by_site(playwright:Playwright):
     obj = filterBySite(playwright)
     obj.navigate(
         {

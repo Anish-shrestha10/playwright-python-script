@@ -24,7 +24,7 @@ class AiCall:
     def ai_call_patient(self):
         trials = self.page.locator(
             "(//div[@class='flex flex-1 w-full flex-col justify-between md:flex-row md:items-center'])").filter(
-            has_text="+9779843125788")
+            has_text="+61468098739")
         trials.get_by_role("button", name="AI Call").first.click()
         self.page.get_by_role("button", name = "Call now").click()
         time.sleep(3)
@@ -42,7 +42,7 @@ class AiCall:
     def ai_call_schedule(self,data):
         trials = self.page.locator(
             "(//div[@class='flex flex-1 w-full flex-col justify-between md:flex-row md:items-center'])").filter(
-            has_text="+9779843125788")
+            has_text="+61468098739")
         trials.get_by_role("button", name="AI Call").first.click()
         self.page.locator("input[type='date']").fill(data['date'])
 

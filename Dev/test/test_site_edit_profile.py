@@ -11,7 +11,7 @@ def test_site_profile(playwright:Playwright):
         })
     obj.update_personal_information({
       "first_name": "zoro",
-      "last_name": "shrestha",
+      "last_name": "test",
       "phone": "9843125788",
       "organization": "probits"
     })

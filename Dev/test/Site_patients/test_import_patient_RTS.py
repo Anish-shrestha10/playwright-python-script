@@ -4,7 +4,7 @@ from Dev.Page.Site_patient.Import_patient_RTS import ImportPatientRTS
 
 
 
-def test_import_single_patient(playwright:Playwright):
+def test_import_patient_RTS(playwright:Playwright):
     obj = ImportPatientRTS(playwright)
     obj.navigate(
         {

@@ -4,7 +4,7 @@ from Dev.Page.Site_patient.Import_bulk_patient import ImportBulkPatient
 
 
 
-def test_import_single_patient(playwright:Playwright):
+def test_import_bulk_patient(playwright:Playwright):
     obj = ImportBulkPatient(playwright)
     obj.navigate(
         {

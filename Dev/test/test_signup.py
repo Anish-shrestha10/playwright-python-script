@@ -7,10 +7,10 @@ def test_valid_data(playwright:Playwright):
     obj = Signup(playwright)
     obj.navigate()
     obj.signup({
-    "first_name": "Site",
-    "last_name": "Shrestha",
-    "email": "qa.site1.1+32@gmail.com",
-    "selectOption": "Site",
+    "first_name": "Patient",
+    "last_name": "user",
+    "email": "qa.patients1.1+4@gmail.com",
+    "selectOption": "Patient",
     "Organization": "probits",
     "password": "Password@123",
     "confirmPassword":  "Password@123"
@@ -21,7 +21,7 @@ def test_same_email(playwright: Playwright):
     obj.navigate()
     obj.signup({
       "first_name": "Patient",
-    "last_name": "Shrestha",
+    "last_name": "test",
     "email": "qa.site1.1@gmail.com",
     "selectOption": "Site",
     "Organization": "probits",

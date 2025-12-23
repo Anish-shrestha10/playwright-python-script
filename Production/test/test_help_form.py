@@ -12,7 +12,7 @@ def test_help(playwright:Playwright):
         })
     obj.form(
         {
-            "fullname":"Anish shrestha",
+            "fullname":"test help",
             "country_code":"Nepal (+977)",
             "number":"9843125788",
             "email":"anish@gmail.com",
